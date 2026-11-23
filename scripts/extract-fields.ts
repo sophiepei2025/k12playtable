@@ -79,7 +79,7 @@ export const Extracted = z.object({
   total_weeks: q(z.number()),
   selectivity: q(z.enum(["open", "selective", "highly_selective"])),
   acceptance_rate: q(z.number()),
-  grades: q(z.array(z.number().int())),
+  grades: q(z.array(z.union([z.number(), z.string()]))), // model sometimes returns "9-12" strings
   citizenship: q(z.array(z.string())),
   international_ok: q(z.boolean()),
   residential: q(z.boolean()),
@@ -107,7 +107,7 @@ Keys:
 - hours_per_week, total_weeks: numbers
 - selectivity: open (anyone may join/register) | selective (application reviewed, limited spots) | highly_selective (states acceptance under ~10% or very competitive)
 - acceptance_rate: 0-1 only if the page states a rate
-- grades: list of eligible school grades (9-12)
+- grades: list of eligible school grades as integers, e.g. [9, 10, 11, 12]; expand ranges like "9-12" into separate integers
 - citizenship: e.g. ["US"], ["CA"] if restricted
 - international_ok: true/false only if stated
 - residential: true if students live on site
@@ -166,7 +166,7 @@ export function toPatch(ex: ExtractedT): { patch: Record<string, unknown>; field
   const rate = v("acceptance_rate");
   if (rate !== null && rate >= 0 && rate <= 1) set("acceptance_rate", () => (patch.acceptance_rate = rate));
   const elig: Record<string, unknown> = {};
-  const grades = (v("grades") ?? []).filter((g) => g >= 6 && g <= 12);
+  const grades = normalizeGrades(v("grades") ?? []);
   if (grades.length) {
     elig.grades = grades;
     patch.grades = grades;
@@ -195,6 +195,27 @@ interface Target {
   name: string;
   link: string;
   candidate: boolean;
+}
+
+
+// Turn model output like [9, "10", "11-12", "Grade 9 to 12"] into sorted unique grades 6..12.
+export function normalizeGrades(raw: Array<number | string>): number[] {
+  const out = new Set<number>();
+  for (const item of raw) {
+    if (typeof item === "number") {
+      out.add(item);
+      continue;
+    }
+    const range = item.match(/(\d{1,2})\s*(?:-|–|—|to)\s*(\d{1,2})/i);
+    if (range) {
+      const a = Number(range[1]);
+      const b = Number(range[2]);
+      for (let g = Math.min(a, b); g <= Math.max(a, b); g++) out.add(g);
+      continue;
+    }
+    for (const m of item.matchAll(/\d{1,2}/g)) out.add(Number(m[0]));
+  }
+  return [...out].filter((g) => g >= 6 && g <= 12).sort((x, y) => x - y);
 }
 
 function slug(s: string) {
