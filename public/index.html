@@ -3,111 +3,135 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Extracurricular Finder — cost, time, deadlines and real signals for North American families</title>
-  <meta name="description" content="Search 330+ extracurricular programs, competitions and research opportunities for high school students. See cost, hours, deadlines, selectivity and who runs each program." />
-  <!-- Report channel for data issues: set one of these before deploy -->
+  <title>Extracurricular Finder — compare programs by cost, time, deadlines and real admissions value</title>
+  <meta name="description" content="Search 330+ extracurricular programs, competitions and research opportunities for North American high school students. Compare cost, weekly hours, deadlines, selectivity and the drive from home." />
+  <meta property="og:title" content="Extracurricular Finder" />
+  <meta property="og:description" content="Pick extracurriculars that are worth your child's time and your money. Cost, hours, deadlines and admissions signal, side by side." />
+  <!-- Report + waitlist inbox: set one of these before deploy -->
   <meta name="issues-repo" content="" />
   <meta name="feedback-email" content="" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary" />
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%232563eb%22/%3E%3Cpath d=%22M9 17l5 5 9-11%22 stroke=%22white%22 stroke-width=%223.5%22 fill=%22none%22/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231d4ed8%22/%3E%3Cpath d=%22M9 17l5 5 9-11%22 stroke=%22white%22 stroke-width=%223.5%22 fill=%22none%22/%3E%3C/svg%3E" />
 </head>
 <body>
-<header>
-  <div class="brand">
-    <h1>Extracurricular Finder</h1>
-    <span class="badge-count" id="totalBadge">Loading…</span>
-  </div>
-  <div class="header-actions">
-    <button class="btn" id="savedBtn">Saved (<span id="savedCount">0</span>)</button>
-    <a class="btn" href="/llms.txt" title="Connect your AI assistant">For AI assistants</a>
-    <button class="btn btn-primary" id="suggestBtn">+ Suggest a program</button>
-  </div>
+<a class="skip" href="#results">Skip to results</a>
+<header class="topbar">
+  <a class="brand" href="/" aria-label="Extracurricular Finder home">
+    <span class="logo" aria-hidden="true"></span>
+    <span class="brand-name">Extracurricular<span class="hide-sm"> Finder</span></span>
+  </a>
+  <nav class="header-actions" aria-label="Main">
+    <button class="btn btn-ghost" id="savedBtn" type="button">Saved <span class="count" id="savedCount">0</span></button>
+    <a class="btn btn-primary" href="#early-access" id="earlyTop"><span class="hide-sm">Get </span>early access</a>
+  </nav>
 </header>
 
-<div class="container">
-  <form class="ask" id="askForm">
-    <input type="search" id="askInput" placeholder="Describe what you need, e.g. “free summer CS programs for grade 10 in Canada”" />
-    <button class="btn btn-primary" type="submit">Find</button>
-    <div class="hint" id="askHint">Plain-English search. We turn it into the filters below; you can adjust them.</div>
-  </form>
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <p class="eyebrow">For North American families and school counselors</p>
+    <h1 id="heroTitle">Find extracurriculars worth your child’s time and your money.</h1>
+    <p class="lede">Cost, weekly hours, deadlines, how selective it is, and how far the drive is, for <strong id="totalCount">330+</strong> programs, competitions and research opportunities. No paid placements.</p>
 
-  <div class="controls">
-    <input type="search" id="q" placeholder="Keyword (Google, robotics, olympiad…)" />
-    <select id="audience">
-      <option value="high_school">High school</option>
-      <option value="undergraduate">University (undergrad)</option>
-      <option value="">All audiences</option>
-    </select>
-    <select id="grade">
-      <option value="">Any grade</option>
-      <option value="9">Grade 9</option><option value="10">Grade 10</option>
-      <option value="11">Grade 11</option><option value="12">Grade 12</option>
-    </select>
-    <select id="subject"><option value="">Any subject</option></select>
-    <select id="category">
-      <option value="">Any type</option>
-      <option>Program</option><option>Competition</option><option>Academic Research</option>
-      <option>Community Service</option><option>Club</option>
-    </select>
-    <select id="environment">
-      <option value="">Online or in person</option>
-      <option value="in_person">In person</option><option value="hybrid">Hybrid</option><option value="online">Online</option>
-    </select>
-    <select id="organizer">
-      <option value="">Any organizer</option>
-      <option value="company">Company</option>
-      <option value="nonprofit">Nonprofit / foundation</option>
-      <option value="university_program">University</option>
-      <option value="education_org">Education company / school</option>
-      <option value="government">Government</option>
-    </select>
-    <select id="country">
-      <option value="">US, Canada or global</option>
-      <option value="CA">Canada</option><option value="US">United States</option><option value="Global">Global / online</option>
-    </select>
-    <select id="home"><option value="">Home city (for commute)</option></select>
-    <select id="sort">
-      <option value="">Best signal first</option>
-      <option value="convenience">Easiest logistics first</option>
-      <option value="relevance">Best keyword match</option>
-      <option value="deadline">Deadline soonest</option>
-      <option value="name">A–Z</option>
-    </select>
-    <label class="check"><input type="checkbox" id="verified" /> Verified facts only</label>
-  </div>
+    <form class="ask" id="askForm" role="search">
+      <label for="askInput" class="sr-only">Describe what you are looking for</label>
+      <input type="search" id="askInput" autocomplete="off" placeholder="e.g. free summer coding programs for grade 10 in Canada" />
+      <button class="btn btn-primary btn-lg" type="submit">Search</button>
+    </form>
+    <div class="examples" aria-label="Example searches">
+      <span>Try:</span>
+      <button type="button" class="example" data-q="Free selective summer research programs for grade 11">Free selective summer research, grade 11</button>
+      <button type="button" class="example" data-q="Online math competitions for grade 9">Online math competitions, grade 9</button>
+      <button type="button" class="example" data-q="Programs in Canada that are open to international students">Canada, open to international students</button>
+    </div>
+    <p class="hint" id="askHint" aria-live="polite"></p>
 
-  <div class="stats-bar">
-    <span id="resultStats">Loading…</span>
-    <span class="chips" id="appliedChips"></span>
-  </div>
+    <ul class="trust" aria-label="How we rate programs">
+      <li><b>Free + selective</b> programs count most with admissions. <b>Paid + open</b> count least.</li>
+      <li>A big-company name alone does not mean high value.</li>
+      <li>Every fact links back to the official site. Anything unconfirmed is marked.</li>
+    </ul>
+  </section>
 
-  <div class="grid" id="cardsGrid"></div>
-</div>
+  <section class="filters" aria-label="Filters">
+    <div class="filter-row">
+      <div class="field"><label for="grade">Grade</label>
+        <select id="grade"><option value="">Any grade</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option></select></div>
+      <div class="field"><label for="category">Type</label>
+        <select id="category"><option value="">Any type</option><option>Program</option><option>Competition</option><option>Academic Research</option><option>Community Service</option><option>Club</option></select></div>
+      <div class="field"><label for="environment">Format</label>
+        <select id="environment"><option value="">Online or in person</option><option value="in_person">In person</option><option value="hybrid">Hybrid</option><option value="online">Online</option></select></div>
+      <div class="field"><label for="home">Your city</label>
+        <select id="home"><option value="">Not set</option></select></div>
+      <div class="field"><label for="sort">Sort by</label>
+        <select id="sort"><option value="">Strongest signal</option><option value="convenience">Easiest logistics</option><option value="deadline">Deadline soonest</option><option value="relevance">Best keyword match</option><option value="name">A–Z</option></select></div>
+    </div>
+    <details class="more" id="moreFilters">
+      <summary>More filters <span class="more-count" id="moreCount"></span></summary>
+      <div class="filter-row">
+        <div class="field"><label for="q">Keyword</label><input type="search" id="q" placeholder="robotics, olympiad…" /></div>
+        <div class="field"><label for="subject">Subject</label><select id="subject"><option value="">Any subject</option></select></div>
+        <div class="field"><label for="country">Where</label>
+          <select id="country"><option value="">US, Canada or global</option><option value="CA">Canada</option><option value="US">United States</option><option value="Global">Global / online</option></select></div>
+        <div class="field"><label for="organizer">Run by</label>
+          <select id="organizer"><option value="">Anyone</option><option value="university_program">University</option><option value="nonprofit">Nonprofit / foundation</option><option value="company">Company</option><option value="education_org">Education company / school</option><option value="government">Government</option></select></div>
+        <div class="field"><label for="audience">Audience</label>
+          <select id="audience"><option value="high_school">High school</option><option value="undergraduate">University (undergrad)</option><option value="">All audiences</option></select></div>
+        <label class="check"><input type="checkbox" id="verified" /> Confirmed facts only</label>
+      </div>
+    </details>
+  </section>
+
+  <section id="results" class="results" aria-labelledby="resultStats" tabindex="-1">
+    <div class="stats-bar">
+      <h2 id="resultStats" aria-live="polite">Loading programs…</h2>
+      <div class="chips" id="appliedChips"></div>
+      <button type="button" class="link-btn" id="resetBtn" hidden>Reset filters</button>
+    </div>
+    <div class="grid" id="cardsGrid" aria-busy="true"></div>
+  </section>
+
+  <section class="early" id="early-access" aria-labelledby="earlyTitle">
+    <div class="early-copy">
+      <h2 id="earlyTitle">Planning next summer? Get early access.</h2>
+      <p>We are building a planner that checks overlaps, weekly hours, exam weeks and drop-off time, then sends deadline reminders. Join the first group of families and counselors to try it free.</p>
+    </div>
+    <form class="early-form" id="earlyForm" novalidate>
+      <div class="field"><label for="eEmail">Email</label><input id="eEmail" type="email" autocomplete="email" required placeholder="you@example.com" aria-describedby="eError" /></div>
+      <div class="field"><label for="eRole">I am a</label>
+        <select id="eRole"><option value="parent">Parent</option><option value="counselor">School counselor</option><option value="student">Student</option><option value="other">Other</option></select></div>
+      <div class="field"><label for="eGrade">Child’s grade (optional)</label>
+        <select id="eGrade"><option value="">Prefer not to say</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+      <div class="field full"><label for="eNote">What is the hardest part right now? (optional)</label><input id="eNote" maxlength="200" placeholder="e.g. too many options, can’t tell what’s worth it" /></div>
+      <p class="error" id="eError" role="alert"></p>
+      <button class="btn btn-primary btn-lg full" type="submit">Join the early-access list</button>
+      <p class="fine full">We only use your email to invite you. No spam, no selling data.</p>
+    </form>
+  </section>
+</main>
 
 <footer>
-  “Unverified” means we have not confirmed it on the official site yet. Always confirm dates and fees with the program.
-  Signals follow one rule: free + selective programs carry the most weight with admissions; paid + open programs the least. A big-company name alone does not mean high value.
-  Commute times are rough estimates from city-to-city distance; check the real route.
+  <p>“Not confirmed” means we have not checked it on the official site yet. Always confirm dates and fees with the program. Drive times are rough city-to-city estimates.</p>
+  <p><button type="button" class="link-btn" id="suggestBtn">Suggest a program</button> · <a href="/llms.txt">Use with your AI assistant</a></p>
 </footer>
 
-<div class="tray" id="tray">
+<div class="tray" id="tray" role="region" aria-label="Compare tray">
   <span id="trayText"></span>
-  <button id="compareBtn">Compare</button>
-  <button id="clearCmpBtn">Clear</button>
+  <button type="button" id="compareBtn">Compare</button>
+  <button type="button" id="clearCmpBtn" class="tray-clear">Clear</button>
 </div>
 
 <div class="modal-backdrop" id="modal" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-header">
       <h2 id="modalTitle"></h2>
-      <button class="close-btn" id="modalClose" aria-label="Close">&times;</button>
+      <button type="button" class="close-btn" id="modalClose" aria-label="Close">&times;</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script type="module" src="/app.js"></script>
 </body>
 </html>
