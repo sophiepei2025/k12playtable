@@ -51,6 +51,10 @@ const planItem = z.object({
   deposit: z.string().nullable().optional(),
   needs_rec_letter: z.boolean().optional(),
   needs_essay: z.boolean().optional(),
+  online: z.boolean().optional().describe("Online items cost no travel"),
+  commute_minutes_one_way: z.number().nullable().optional().describe("Door-to-door minutes one way; use search_activities est_commute_minutes or ask the family"),
+  sessions_per_week: z.number().nullable().optional().describe("Trips per week"),
+  session_hours: z.number().nullable().optional(),
 });
 
 export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpServer {
@@ -68,7 +72,7 @@ export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpSer
     {
       title: "Search extracurricular activities",
       description:
-        "Search North American extracurricular programs, competitions and research opportunities for high school students. Use when a parent or counselor asks what activities fit a grade, subject, budget, format or deadline. Returns summaries with the five decision fields (cost, application deadline, hours per week, selectivity, international eligibility); null means not yet verified, never 'free' or 'open'. Default sort puts free + selective programs first.",
+        "Search North American extracurricular programs, competitions and research opportunities for high school students. Use when a parent or counselor asks what activities fit a grade, subject, budget, format, location or deadline. Returns summaries with the five decision fields (cost, application deadline, hours per week, selectivity, international eligibility) plus a logistics band (online / close / moderate / long commute / travel / unknown); null means not yet verified, never 'free' or 'open'. Ask for the family's home city and whether a parent drives, then pass home_city and choose sort=signal or sort=convenience.",
       inputSchema: {
         q: z.string().optional().describe("Keywords, e.g. 'robotics', 'math olympiad', 'Google'"),
         audience: z.array(z.enum(["high_school", "undergraduate", "graduate"])).optional().describe("Default: all audiences. Use ['high_school'] for high school families."),
@@ -87,7 +91,12 @@ export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpSer
         selective_only: z.boolean().optional(),
         verified_only: z.boolean().optional(),
         include_discontinued: z.boolean().optional(),
-        sort: z.enum(["relevance", "signal", "deadline", "name"]).optional(),
+        home_city: z.string().optional().describe("Family's city, e.g. 'Markham', 'Toronto', 'Waterloo'. Enables commute estimates (straight-line based, approximate)."),
+        max_commute_minutes: z.number().optional().describe("Hide programs whose estimated one-way commute is above this; unknown locations are kept"),
+        sort: z
+          .enum(["relevance", "signal", "convenience", "deadline", "name"])
+          .optional()
+          .describe("signal (default): free+selective first, logistics breaks ties. convenience: online / close to home first, then signal."),
         limit: z.number().int().min(1).max(50).optional().describe("Default 20"),
         offset: z.number().int().min(0).optional(),
       },
@@ -178,7 +187,7 @@ export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpSer
       "check_conflicts",
       {
         title: "Check a plan for conflicts",
-        description: "Deterministically check a draft plan: date overlaps, residential travel buffers, weekly hour caps (term vs summer), exam-period starts, passed deadlines and missing data. Always use this instead of doing date or hour arithmetic yourself.",
+        description: "Deterministically check a draft plan: date overlaps, residential travel buffers, weekly hour caps (term vs summer, student commute included), one-way commute limit, parent driving/pick-up hours per week, exam-period starts, passed deadlines and missing data. Always use this instead of doing date or hour arithmetic yourself.",
         inputSchema: {
           items: z.array(planItem).min(1),
           exams: z.array(z.object({ start: z.string(), end: z.string(), label: z.string().optional() })).optional(),
@@ -186,12 +195,19 @@ export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpSer
             .object({ school_term_max_hours: z.number().optional(), summer_max_hours: z.number().optional(), exam_buffer_days: z.number().optional() })
             .optional()
             .describe("Family-specific overrides of the defaults"),
+          family: z
+            .object({
+              transport: z.enum(["parent_drive", "transit", "self"]).optional().describe("Who gets the student there; parent hours only count for parent_drive"),
+              max_commute_minutes: z.number().optional(),
+              parent_max_hours_per_week: z.number().optional(),
+            })
+            .optional(),
         },
         annotations: READ_ONLY,
       },
-      async ({ items, exams, config }) => {
+      async ({ items, exams, config, family }) => {
         try {
-          return okJson(checkConflicts(items, { exams, config, today: ctx.today }));
+          return okJson(checkConflicts(items, { exams, config, family, today: ctx.today }));
         } catch (e) {
           return errJson(e);
         }
@@ -226,15 +242,16 @@ export function createExtracurricularMcpServer(ctx: RuntimeContext = {}): McpSer
         interests: z.string().describe("Subjects or goals, e.g. 'computer science, maybe medicine'"),
         city: z.string().optional(),
         budget: z.string().optional().describe("Yearly budget incl. travel, e.g. 'CAD 3000'"),
+        transport: z.string().optional().describe("Who drives: 'parent drives', 'transit', 'student goes alone'"),
       },
     },
-    ({ grade, interests, city, budget }) => ({
+    ({ grade, interests, city, budget, transport }) => ({
       messages: [
         {
           role: "user",
           content: {
             type: "text",
-            text: `Call get_planning_rules first and follow it. Then use search_activities (audience high_school, grade ${grade}) and get_activity to build a plan for a grade ${grade} student interested in ${interests}${city ? `, living in ${city}` : ""}${budget ? `, budget ${budget}` : ""}. Use check_conflicts and get_deadlines if they are available; otherwise check the rules by hand and say which checks you could not run. Mark every unverified fact as unverified.`,
+            text: `Call get_planning_rules first and follow it. Then use search_activities (audience high_school, grade ${grade}) and get_activity to build a plan for a grade ${grade} student interested in ${interests}${city ? `, living in ${city}` : ""}${budget ? `, budget ${budget}` : ""}${transport ? `, transport: ${transport}` : ""}. Pass home_city to search_activities and weigh online vs in person, commute and parent driving time (rules S5, S7, S8). Use check_conflicts and get_deadlines if they are available; otherwise check the rules by hand and say which checks you could not run. Mark every unverified fact as unverified.`,
           },
         },
       ],

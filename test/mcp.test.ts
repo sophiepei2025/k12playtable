@@ -57,6 +57,19 @@ test("paid tier: check_conflicts and get_deadlines", async () => {
     }),
   );
   assert.ok(r.conflicts.some((x: { type: string }) => x.type === "overlap"));
+  const lg = parse(
+    await c.callTool({
+      name: "check_conflicts",
+      arguments: {
+        items: [{ id: "club", start: "2027-01-11", end: "2027-02-28", hours_per_week: 3, sessions_per_week: 2, session_hours: 1.5, commute_minutes_one_way: 40 }],
+        family: { transport: "parent_drive", parent_max_hours_per_week: 4 },
+      },
+    }),
+  );
+  assert.ok(lg.conflicts.some((x: { type: string }) => x.type === "parent_time"));
+  assert.equal(lg.weekly_load[0].parent_hours, 5.3);
+  const near = parse(await c.callTool({ name: "search_activities", arguments: { home_city: "Waterloo", sort: "convenience", country: ["CA"] } }));
+  assert.ok(near.results.every((x: { logistics: string }) => typeof x.logistics === "string"));
   const d = parse(await c.callTool({ name: "get_deadlines", arguments: { items: [{ id: "shad-canada", start: null, end: null, hours_per_week: null, app_deadline: "2027-01-06" }], include_ics: true } }));
   assert.match(d.ics, /BEGIN:VCALENDAR/);
 });

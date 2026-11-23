@@ -373,7 +373,7 @@ label {
 .ask { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); margin-bottom: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .ask input { flex: 1 1 420px; font-size: 14px; padding: 11px 14px; }
 .ask .hint { flex-basis: 100%; font-size: 12px; color: var(--muted); }
-.controls { grid-template-columns: repeat(5, 1fr); }
+.controls { grid-template-columns: repeat(6, 1fr); }
 @media (max-width: 1000px) { .controls { grid-template-columns: repeat(3, 1fr); } }
 .controls label.check { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
 .controls label.check input { width: auto; }

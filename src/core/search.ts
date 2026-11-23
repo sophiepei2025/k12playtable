@@ -1,5 +1,6 @@
 import type { Activity, Audience, OrganizerType } from "./schema.js";
 import { TIER_RANK, decisionCompleteness, formatCost, tierOf } from "./signals.js";
+import { activityLogistics, BAND_RANK, type FamilyLogistics, type LogisticsBand } from "./logistics.js";
 
 /** Filters shared by the web page, the public API and the MCP tool. All optional. */
 export interface SearchFilters {
@@ -21,7 +22,13 @@ export interface SearchFilters {
   selective_only?: boolean;
   verified_only?: boolean; // at least one decision field verified
   include_discontinued?: boolean;
-  sort?: "relevance" | "signal" | "deadline" | "name";
+  /** Family logistics: home location enables commute estimates. */
+  home_city?: string;
+  home?: { lat: number; lng: number };
+  /** Hide programs whose estimated one-way commute is above this (unknown kept). */
+  max_commute_minutes?: number;
+  /** signal = value tier first, logistics breaks ties (default). convenience = logistics first. */
+  sort?: "relevance" | "signal" | "convenience" | "deadline" | "name";
   limit?: number;
   offset?: number;
 }
@@ -43,6 +50,8 @@ export interface ActivitySummary {
   selectivity: Activity["selectivity"];
   international_ok: boolean | null;
   tier: string;
+  logistics: LogisticsBand;
+  est_commute_minutes: number | null;
   verified: string; // "2/5"
   last_verified: string | null;
   status: Activity["status"];
@@ -56,8 +65,11 @@ export interface SearchResult {
   results: ActivitySummary[];
 }
 
-export function summarize(a: Activity): ActivitySummary {
+const famOf = (f: SearchFilters): FamilyLogistics => ({ home_city: f.home_city, home: f.home, max_commute_minutes: f.max_commute_minutes });
+
+export function summarize(a: Activity, fam: FamilyLogistics = {}): ActivitySummary {
   const c = decisionCompleteness(a);
+  const lg = activityLogistics(a, fam);
   return {
     id: a.id,
     name: a.name,
@@ -75,6 +87,8 @@ export function summarize(a: Activity): ActivitySummary {
     selectivity: a.selectivity,
     international_ok: a.eligibility.international_ok,
     tier: tierOf(a),
+    logistics: lg.band,
+    est_commute_minutes: lg.est_commute_minutes,
     verified: `${c.filled}/${c.total}`,
     last_verified: a.last_verified,
     status: a.status,
@@ -141,6 +155,12 @@ export function matches(a: Activity, f: SearchFilters): boolean {
   if (f.international_ok !== undefined && a.eligibility.international_ok !== f.international_ok) return false;
   if (f.selective_only && !(a.selectivity === "selective" || a.selectivity === "highly_selective")) return false;
   if (f.verified_only && decisionCompleteness(a).filled === 0 && !a.last_verified) return false;
+  if (f.max_commute_minutes !== undefined) {
+    const lg = activityLogistics(a, famOf(f));
+    if (lg.est_commute_minutes !== null && lg.est_commute_minutes > f.max_commute_minutes) return false;
+    // Too far to commute and not residential: excluded. Residential programs are trips by design and stay.
+    if (lg.band === "travel" && lg.distance_km !== null && !a.residential) return false;
+  }
   if (f.q) {
     const tokens = tokenize(f.q);
     if (tokens.length && relevance(a, tokens) === 0) return false;
@@ -155,7 +175,9 @@ export function search(list: Activity[], f: SearchFilters = {}): SearchResult {
   const sort = f.sort ?? (tokens.length ? "relevance" : "signal");
 
   const hits = list.filter((a) => matches(a, f));
+  const fam = famOf(f);
   const key = (a: Activity) => ({
+    band: BAND_RANK[activityLogistics(a, fam).band],
     rel: relevance(a, tokens),
     tier: TIER_RANK[tierOf(a)],
     filled: decisionCompleteness(a).filled,
@@ -166,7 +188,9 @@ export function search(list: Activity[], f: SearchFilters = {}): SearchResult {
     if (sort === "relevance" && y.k.rel !== x.k.rel) return y.k.rel - x.k.rel;
     if (sort === "deadline" && x.k.deadline !== y.k.deadline) return x.k.deadline < y.k.deadline ? -1 : 1;
     if (sort === "name") return x.a.name.localeCompare(y.a.name);
+    if (sort === "convenience" && x.k.band !== y.k.band) return x.k.band - y.k.band;
     if (x.k.tier !== y.k.tier) return x.k.tier - y.k.tier;
+    if (x.k.band !== y.k.band) return x.k.band - y.k.band;
     if (y.k.filled !== x.k.filled) return y.k.filled - x.k.filled;
     if (y.k.rel !== x.k.rel) return y.k.rel - x.k.rel;
     return x.a.name.localeCompare(y.a.name);
@@ -175,7 +199,7 @@ export function search(list: Activity[], f: SearchFilters = {}): SearchResult {
     total: keyed.length,
     offset,
     limit,
-    results: keyed.slice(offset, offset + limit).map(({ a }) => summarize(a)),
+    results: keyed.slice(offset, offset + limit).map(({ a }) => summarize(a, fam)),
   };
 }
 
@@ -206,6 +230,7 @@ export function compare(list: Activity[], ids: string[]) {
       row("Program dates", (a) => (a.dates.start ? `${a.dates.start} → ${a.dates.end ?? "?"}` : null)),
       row("Hours per week", (a) => a.hours_per_week),
       row("Format", (a) => a.environment),
+      row("Logistics", (a) => activityLogistics(a).label),
       row("Residential", (a) => a.residential),
       row("Selectivity", (a) => a.selectivity),
       row("International students", (a) => a.eligibility.international_ok),

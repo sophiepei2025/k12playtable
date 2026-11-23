@@ -14,7 +14,7 @@
 ```bash
 npm install
 cp .env.example .env          # 填 DASHSCOPE_API_KEY（弗吉尼亚 key）
-npm test                      # 27 个测试
+npm test                      # 32 个测试
 npm run serve                 # http://localhost:3000 网页 + /mcp + /api
 ```
 

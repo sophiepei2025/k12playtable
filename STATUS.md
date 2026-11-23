@@ -25,7 +25,13 @@
    - 搜索、筛选、4 个决策字段卡片、「Is it worth it?」、收藏、对比、`.ics`、纠错 / 推荐。
    - 一句话搜索调用 `/api/parse-query`。
 8. **公开 API**：`/api/activities`、`/api/parse-query`、`/llms.txt`、`/openapi.json`。
-9. **测试**：27 个（schema、搜索、信号、排期、LLM mock、抽取引用校验、MCP 内存与 HTTP 协议）全部通过；headless Chrome 走通主要交互，控制台无报错。
+9. **测试**：32 个（schema、搜索、信号、排期、LLM mock、抽取引用校验、MCP 内存与 HTTP 协议）全部通过；headless Chrome 走通主要交互，控制台无报错。
+
+10. **接送成本（S5 扩展、S7、S8）**：`src/core/logistics.ts`。
+    - 线上/线下、离家距离（城市坐标 + 两段速度模型估算）、家长接送时间。
+    - 搜索支持 `home_city` 和 `sort=convenience`，结果带 logistics 档位和估算通勤时间。
+    - 冲突检查计入孩子通勤，新增 commute 和 parent_time 冲突类型。
+    - 网页新增家所在城市选择、「Easiest logistics first」排序，卡片显示「Getting there」。
 
 ## 待办 / 下一步
 - [ ] 配置 `DASHSCOPE_API_KEY`（弗吉尼亚 key），跑 `npm run extract -- --limit 50 --yes`，再人工审核补齐高频 50 条的 5 个决策字段。
@@ -34,4 +40,5 @@
 - [ ] 确定纠错渠道：`ISSUES_REPO` 或 `FEEDBACK_EMAIL`，同时填进 `public/index.html` 的 meta。
 - [ ] 部署 Vercel，确认 `/health`、`/mcp`、`/api/*` 和静态页面都正常。
 - [ ] V2：付费 tool 改用 OAuth 2.1（按家庭）、Stripe、排期 UI、Supabase（加拿大区）。
-- [ ] S4–S6 和 H5 的默认值待你确认（S1、S2 已确认）。
+- [ ] S4–S8 和 H5 的默认值待你确认（S1、S2 已确认）。S7 通勤 ≤ 45 分钟、S8 家长接送 ≤ 4 小时/周为暂定。
+- [ ] 活动地点（city）大多未核实，接送成本多显示「Location not verified」；抽取管线已加 city 和 sessions_per_week 字段，跑一轮就能补上。

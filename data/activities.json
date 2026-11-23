@@ -31,6 +31,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -45,6 +47,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -103,6 +106,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -117,6 +122,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -172,6 +178,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -186,6 +194,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -243,6 +252,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -257,6 +268,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -318,6 +330,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -332,6 +346,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -388,6 +403,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -402,6 +419,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -460,6 +478,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -474,6 +494,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -530,6 +551,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -544,6 +567,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -602,6 +626,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -616,6 +642,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -671,6 +698,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -685,6 +714,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -745,6 +775,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -759,6 +791,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -824,6 +857,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -838,6 +873,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -897,6 +933,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -911,6 +949,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -966,6 +1005,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -980,6 +1021,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1035,6 +1077,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1049,6 +1093,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1106,6 +1151,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1120,6 +1167,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1179,6 +1227,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1193,6 +1243,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1251,6 +1302,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1265,6 +1318,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1321,6 +1375,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1335,6 +1391,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1389,6 +1446,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1403,6 +1462,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1459,6 +1519,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1473,6 +1535,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1527,6 +1590,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1541,6 +1606,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1600,6 +1666,8 @@
    "country": "Global",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1614,6 +1682,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1673,6 +1742,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1687,6 +1758,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1745,6 +1817,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1759,6 +1833,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1820,6 +1895,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1834,6 +1911,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1903,6 +1981,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1917,6 +1997,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -1977,6 +2058,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -1991,6 +2074,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2047,6 +2131,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2061,6 +2147,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2119,6 +2206,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2133,6 +2222,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2193,6 +2283,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2207,6 +2299,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2271,6 +2364,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2285,6 +2380,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2340,6 +2436,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2354,6 +2452,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2408,6 +2507,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2422,6 +2523,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2479,6 +2581,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2493,6 +2597,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2552,6 +2657,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2566,6 +2673,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2623,6 +2731,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2637,6 +2747,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2696,6 +2807,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2710,6 +2823,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2772,6 +2886,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2786,6 +2902,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2845,6 +2962,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2859,6 +2978,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2915,6 +3035,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -2929,6 +3051,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -2988,6 +3111,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3002,6 +3127,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3062,6 +3188,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3076,6 +3204,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3137,6 +3266,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3151,6 +3282,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3205,6 +3337,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3219,6 +3353,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3274,6 +3409,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3288,6 +3425,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3345,6 +3483,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3359,6 +3499,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3419,6 +3560,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3433,6 +3576,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3490,6 +3634,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3504,6 +3650,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3560,6 +3707,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3574,6 +3723,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3637,6 +3787,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3651,6 +3803,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3713,6 +3866,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3727,6 +3882,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3784,6 +3940,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3798,6 +3956,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3856,6 +4015,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3870,6 +4031,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3926,6 +4088,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -3940,6 +4104,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -3994,6 +4159,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4008,6 +4175,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4064,6 +4232,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4078,6 +4248,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4136,6 +4307,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4150,6 +4323,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4213,6 +4387,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4227,6 +4403,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4288,6 +4465,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4302,6 +4481,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4358,6 +4538,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4372,6 +4554,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4430,6 +4613,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4444,6 +4629,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4501,6 +4687,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4515,6 +4703,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4573,6 +4762,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4587,6 +4778,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4648,6 +4840,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4662,6 +4856,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4722,6 +4917,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4736,6 +4933,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4791,6 +4989,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4805,6 +5005,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4858,6 +5059,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4872,6 +5075,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4930,6 +5134,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -4944,6 +5150,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -4998,6 +5205,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5012,6 +5221,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5066,6 +5276,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5080,6 +5292,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5141,6 +5354,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5155,6 +5370,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5214,6 +5430,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5228,6 +5446,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5282,6 +5501,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5296,6 +5517,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5352,6 +5574,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5366,6 +5590,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5422,6 +5647,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5436,6 +5663,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5493,6 +5721,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5507,6 +5737,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5563,6 +5794,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5577,6 +5810,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5635,6 +5869,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5649,6 +5885,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5705,6 +5942,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5719,6 +5958,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5778,6 +6018,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5792,6 +6034,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5847,6 +6090,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5861,6 +6106,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5915,6 +6161,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -5929,6 +6177,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -5987,6 +6236,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6001,6 +6252,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6067,6 +6319,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6081,6 +6335,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6139,6 +6394,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6153,6 +6410,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6210,6 +6468,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6224,6 +6484,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6284,6 +6545,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6298,6 +6561,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6356,6 +6620,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6370,6 +6636,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6424,6 +6691,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6438,6 +6707,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6494,6 +6764,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6508,6 +6780,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6567,6 +6840,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6581,6 +6856,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6639,6 +6915,8 @@
    "country": "CA",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6653,6 +6931,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6709,6 +6988,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6723,6 +7004,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6779,6 +7061,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6793,6 +7077,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6849,6 +7134,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6863,6 +7150,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6921,6 +7209,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -6935,6 +7225,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -6995,6 +7286,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7009,6 +7302,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7065,6 +7359,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7079,6 +7375,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7133,6 +7430,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7147,6 +7446,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7202,6 +7502,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7216,6 +7518,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7274,6 +7577,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7288,6 +7593,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7343,6 +7649,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7357,6 +7665,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7413,6 +7722,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7427,6 +7738,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7486,6 +7798,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7500,6 +7814,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7556,6 +7871,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7570,6 +7887,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7626,6 +7944,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7640,6 +7960,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7700,6 +8021,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7714,6 +8037,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7775,6 +8099,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7789,6 +8115,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7843,6 +8170,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7857,6 +8186,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7911,6 +8241,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7925,6 +8257,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -7981,6 +8314,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -7995,6 +8330,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8056,6 +8392,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8070,6 +8408,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8131,6 +8470,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8145,6 +8486,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8200,6 +8542,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8214,6 +8558,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8270,6 +8615,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8284,6 +8631,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8340,6 +8688,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8354,6 +8704,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8411,6 +8762,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8425,6 +8778,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8480,6 +8834,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8494,6 +8850,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8555,6 +8912,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8569,6 +8928,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8628,6 +8988,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8642,6 +9004,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8696,6 +9059,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8710,6 +9075,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8765,6 +9131,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8779,6 +9147,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8834,6 +9203,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8848,6 +9219,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8904,6 +9276,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8918,6 +9292,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -8975,6 +9350,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -8989,6 +9366,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9044,6 +9422,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9058,6 +9438,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9114,6 +9495,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9128,6 +9511,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9185,6 +9569,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9199,6 +9585,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9254,6 +9641,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9268,6 +9657,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9325,6 +9715,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9339,6 +9731,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9396,6 +9789,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9410,6 +9805,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9466,6 +9862,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9480,6 +9878,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9535,6 +9934,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9549,6 +9950,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9606,6 +10008,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9620,6 +10024,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9673,6 +10078,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9687,6 +10094,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9743,6 +10151,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9757,6 +10167,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9812,6 +10223,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9826,6 +10239,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9885,6 +10299,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9899,6 +10315,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -9955,6 +10372,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -9969,6 +10388,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10025,6 +10445,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10039,6 +10461,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10096,6 +10519,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10110,6 +10535,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10168,6 +10594,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10182,6 +10610,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10240,6 +10669,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10254,6 +10685,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10309,6 +10741,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10323,6 +10757,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10378,6 +10813,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10392,6 +10829,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10452,6 +10890,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10466,6 +10906,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10523,6 +10964,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10537,6 +10980,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10593,6 +11037,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10607,6 +11053,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10663,6 +11110,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10677,6 +11126,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10737,6 +11187,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10751,6 +11203,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10815,6 +11268,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10829,6 +11284,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10891,6 +11347,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10905,6 +11363,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -10963,6 +11422,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -10977,6 +11438,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11035,6 +11497,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11049,6 +11513,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11108,6 +11573,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11122,6 +11589,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11182,6 +11650,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11196,6 +11666,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11255,6 +11726,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11269,6 +11742,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11327,6 +11801,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11341,6 +11817,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11400,6 +11877,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11414,6 +11893,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11472,6 +11952,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11486,6 +11968,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11542,6 +12025,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11556,6 +12041,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11617,6 +12103,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11631,6 +12119,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11692,6 +12181,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11706,6 +12197,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11764,6 +12256,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11778,6 +12272,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11837,6 +12332,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11851,6 +12348,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11912,6 +12410,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -11926,6 +12426,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -11988,6 +12489,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12002,6 +12505,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12063,6 +12567,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12077,6 +12583,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12133,6 +12640,8 @@
    "country": "CA",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12147,6 +12656,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12205,6 +12715,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12219,6 +12731,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12273,6 +12786,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12287,6 +12802,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12344,6 +12860,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12358,6 +12876,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12421,6 +12940,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12435,6 +12956,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12493,6 +13015,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12507,6 +13031,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12562,6 +13087,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12576,6 +13103,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12630,6 +13158,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12644,6 +13174,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12699,6 +13230,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12713,6 +13246,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12772,6 +13306,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12786,6 +13322,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12843,6 +13380,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12857,6 +13396,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12917,6 +13457,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -12931,6 +13473,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -12995,6 +13538,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13009,6 +13554,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13064,6 +13610,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13078,6 +13626,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13131,6 +13680,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13145,6 +13696,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13199,6 +13751,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13213,6 +13767,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13267,6 +13822,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13281,6 +13838,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13336,6 +13894,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13350,6 +13910,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13405,6 +13966,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13419,6 +13982,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13474,6 +14038,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13488,6 +14054,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13542,6 +14109,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13556,6 +14125,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13616,6 +14186,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13630,6 +14202,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13684,6 +14257,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13698,6 +14273,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13753,6 +14329,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13767,6 +14345,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13821,6 +14400,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13835,6 +14416,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13896,6 +14478,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13910,6 +14494,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -13970,6 +14555,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -13984,6 +14571,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14041,6 +14629,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14055,6 +14645,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14112,6 +14703,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14126,6 +14719,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14180,6 +14774,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14194,6 +14790,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14252,6 +14849,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14266,6 +14865,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14321,6 +14921,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14335,6 +14937,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14395,6 +14998,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14409,6 +15014,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14472,6 +15078,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14486,6 +15094,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14544,6 +15153,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14558,6 +15169,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14614,6 +15226,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14628,6 +15242,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14689,6 +15304,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14703,6 +15320,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14767,6 +15385,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14781,6 +15401,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14838,6 +15459,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14852,6 +15475,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14908,6 +15532,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14922,6 +15548,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -14983,6 +15610,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -14997,6 +15626,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15057,6 +15687,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15071,6 +15703,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15127,6 +15760,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15141,6 +15776,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15197,6 +15833,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15211,6 +15849,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15267,6 +15906,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15281,6 +15922,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15339,6 +15981,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15353,6 +15997,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15410,6 +16055,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15424,6 +16071,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15480,6 +16128,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15494,6 +16144,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15552,6 +16203,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15566,6 +16219,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15623,6 +16277,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15637,6 +16293,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15691,6 +16348,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15705,6 +16364,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15759,6 +16419,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15773,6 +16435,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15828,6 +16491,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15842,6 +16507,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15897,6 +16563,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15911,6 +16579,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -15966,6 +16635,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -15980,6 +16651,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16040,6 +16712,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16054,6 +16728,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16118,6 +16793,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16132,6 +16809,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16192,6 +16870,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16206,6 +16886,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16263,6 +16944,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16277,6 +16960,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16335,6 +17019,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16349,6 +17035,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16409,6 +17096,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16423,6 +17112,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16482,6 +17172,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16496,6 +17188,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16555,6 +17248,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16569,6 +17264,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16627,6 +17323,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16641,6 +17339,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16705,6 +17404,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16719,6 +17420,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16776,6 +17478,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16790,6 +17494,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16850,6 +17555,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16864,6 +17571,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16925,6 +17633,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -16939,6 +17649,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -16996,6 +17707,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17010,6 +17723,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17071,6 +17785,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17085,6 +17801,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17142,6 +17859,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17156,6 +17875,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17216,6 +17936,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17230,6 +17952,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17289,6 +18012,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17303,6 +18028,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17361,6 +18087,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17375,6 +18103,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17431,6 +18160,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17445,6 +18176,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17502,6 +18234,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17516,6 +18250,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17574,6 +18309,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17588,6 +18325,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17648,6 +18386,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17662,6 +18402,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17722,6 +18463,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17736,6 +18479,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17791,6 +18535,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17805,6 +18551,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17862,6 +18609,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17876,6 +18625,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -17934,6 +18684,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -17948,6 +18700,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18003,6 +18756,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18017,6 +18772,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18077,6 +18833,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18091,6 +18849,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18153,6 +18912,8 @@
    "country": "CA",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18167,6 +18928,7 @@
   "aid": "need_based",
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": "2027-01-06",
@@ -18235,6 +18997,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18249,6 +19013,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18310,6 +19075,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18324,6 +19091,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18381,6 +19149,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18395,6 +19165,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18457,6 +19228,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18471,6 +19244,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18530,6 +19304,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18544,6 +19320,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18599,6 +19376,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18613,6 +19392,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18671,6 +19451,8 @@
    "country": "US",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18685,6 +19467,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18745,6 +19528,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18759,6 +19544,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18816,6 +19602,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18830,6 +19618,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18884,6 +19673,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18898,6 +19689,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -18957,6 +19749,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -18971,6 +19765,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19027,6 +19822,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19041,6 +19838,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19096,6 +19894,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19110,6 +19910,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19171,6 +19972,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19185,6 +19988,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19243,6 +20047,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19257,6 +20063,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19313,6 +20120,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19327,6 +20136,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19385,6 +20195,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19399,6 +20211,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19461,6 +20274,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19475,6 +20290,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19535,6 +20351,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19549,6 +20367,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19610,6 +20429,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19624,6 +20445,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19680,6 +20502,8 @@
    "country": "US",
    "area": "Midwest",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19694,6 +20518,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19751,6 +20576,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19765,6 +20592,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19821,6 +20649,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19835,6 +20665,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19890,6 +20721,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19904,6 +20737,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -19965,6 +20799,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -19979,6 +20815,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20038,6 +20875,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20052,6 +20891,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20111,6 +20951,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20125,6 +20967,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20186,6 +21029,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20200,6 +21045,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20259,6 +21105,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20273,6 +21121,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20334,6 +21183,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20348,6 +21199,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20410,6 +21262,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20424,6 +21278,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20482,6 +21337,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20496,6 +21353,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20554,6 +21412,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20568,6 +21428,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20626,6 +21487,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20640,6 +21503,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20697,6 +21561,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20711,6 +21577,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20766,6 +21633,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20780,6 +21649,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20838,6 +21708,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20852,6 +21724,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20907,6 +21780,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20921,6 +21796,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -20977,6 +21853,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -20991,6 +21869,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21051,6 +21930,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21065,6 +21946,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21128,6 +22010,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21142,6 +22026,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21199,6 +22084,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21213,6 +22100,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21271,6 +22159,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21285,6 +22175,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21350,6 +22241,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21364,6 +22257,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21425,6 +22319,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21439,6 +22335,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21500,6 +22397,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21514,6 +22413,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21568,6 +22468,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21582,6 +22484,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21638,6 +22541,8 @@
    "country": "US",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21652,6 +22557,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21714,6 +22620,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21728,6 +22636,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21789,6 +22698,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21803,6 +22714,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21857,6 +22769,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21871,6 +22785,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21925,6 +22840,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -21939,6 +22856,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -21995,6 +22913,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22009,6 +22929,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22070,6 +22991,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22084,6 +23007,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22138,6 +23062,8 @@
    "country": "CA",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22152,6 +23078,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22209,6 +23136,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22223,6 +23152,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22279,6 +23209,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22293,6 +23225,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22347,6 +23280,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22361,6 +23296,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22414,6 +23350,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22428,6 +23366,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22481,6 +23420,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22495,6 +23436,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22549,6 +23491,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22563,6 +23507,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22616,6 +23561,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22630,6 +23577,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22689,6 +23637,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22703,6 +23653,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22761,6 +23712,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22775,6 +23728,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22834,6 +23788,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22848,6 +23804,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22904,6 +23861,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22918,6 +23877,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -22974,6 +23934,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -22988,6 +23950,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23048,6 +24011,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23062,6 +24027,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23122,6 +24088,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23136,6 +24104,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23193,6 +24162,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23207,6 +24178,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23266,6 +24238,8 @@
    "country": "Global",
    "area": "East Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23280,6 +24254,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23338,6 +24313,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23352,6 +24329,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23407,6 +24385,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23421,6 +24401,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23478,6 +24459,8 @@
    "country": "US",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23492,6 +24475,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23550,6 +24534,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23564,6 +24550,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23626,6 +24613,8 @@
    "country": "Global",
    "area": "West Coast",
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23640,6 +24629,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23697,6 +24687,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23711,6 +24703,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23767,6 +24760,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23781,6 +24776,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,
@@ -23835,6 +24831,8 @@
    "country": "Global",
    "area": null,
    "city": null,
+   "lat": null,
+   "lng": null,
    "timezone": null
   },
   "organizer": {
@@ -23849,6 +24847,7 @@
   "aid": null,
   "hours_per_week": null,
   "total_weeks": null,
+  "sessions_per_week": null,
   "dates": {
    "app_open": null,
    "app_deadline": null,

@@ -39,6 +39,8 @@ export const RegionSchema = z.object({
   country: z.enum(["US", "CA", "Global"]),
   area: z.string().nullable().default(null), // "East Coast", "Ontario", ...
   city: z.string().nullable().default(null),
+  lat: z.number().min(-90).max(90).nullable().default(null),
+  lng: z.number().min(-180).max(180).nullable().default(null),
   timezone: z.string().nullable().default(null),
 });
 
@@ -75,6 +77,7 @@ export const ActivitySchema = z.object({
   aid: z.enum(AID_TYPES).nullable().default(null),
   hours_per_week: z.number().nonnegative().nullable().default(null),
   total_weeks: z.number().nonnegative().nullable().default(null),
+  sessions_per_week: z.number().nonnegative().nullable().default(null), // how many trips per week (logistics)
   dates: DatesSchema.default({}),
   selectivity: z.enum(SELECTIVITY).nullable().default(null),
   acceptance_rate: z.number().min(0).max(1).nullable().default(null),

@@ -7,6 +7,7 @@ import { compare, getById, search, type SearchFilters } from "../core/search.js"
 import { explainSignals, formatCost, tierOf, TIER_LABEL } from "../core/signals.js";
 import { getDeadlines, toICS, type PlanItem } from "../core/planner.js";
 import { buildIssueReport } from "../core/issue.js";
+import { activityLogistics, CITY_COORDS, type FamilyLogistics } from "../core/logistics.js";
 
 let ALL: Activity[] = [];
 const SAVED_KEY = "ecf_saved_v1";
@@ -66,6 +67,7 @@ function readFilters(): SearchFilters {
   if (v("organizer")) f.organizer_type = [v("organizer") as "company"];
   if (v("country")) f.country = [v("country") as "CA"];
   if (v("sort")) f.sort = v("sort") as "deadline";
+  if (v("home")) f.home_city = v("home");
   if (($("verified") as HTMLInputElement).checked) f.verified_only = true;
   return f;
 }
@@ -96,8 +98,11 @@ function whyHtml(a: Activity) {
   return `<div>${esc(s.organizer_note)}</div>${s.caveats.length ? `<ul>${s.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}`;
 }
 
+const family = (): FamilyLogistics => ({ home_city: ($("home") as HTMLSelectElement).value || undefined });
+
 function card(a: Activity) {
   const tier = tierOf(a);
+  const lg = activityLogistics(a, family());
   const isSaved = saved.has(a.id);
   const inCmp = compareSet.has(a.id);
   const hours = a.hours_per_week !== null ? `${a.hours_per_week} h/week` : null;
@@ -123,6 +128,7 @@ function card(a: Activity) {
     </div>
     <div>
       <div class="card-meta">
+        <div><strong>Getting there:</strong> ${esc(lg.est_commute_minutes && lg.est_commute_minutes > 0 ? `~${lg.est_commute_minutes} min one way (estimate)` : lg.label)}</div>
         ${a.timing_text ? `<div><strong>When:</strong> ${esc(a.timing_text)}</div>` : ""}
         ${a.window_text && !a.dates.app_deadline ? `<div><strong>Applications:</strong> ${esc(a.window_text)}</div>` : ""}
         <div><strong>Grades:</strong> ${esc(a.grades.length ? a.grades.join(", ") : a.audience.join(", ").replace(/_/g, " "))}</div>
@@ -297,7 +303,22 @@ async function init() {
     .map((s) => `<option>${esc(s)}</option>`)
     .join("");
 
-  for (const id of ["q", "audience", "grade", "subject", "category", "environment", "organizer", "country", "sort", "verified"]) {
+  const cities = Object.keys(CITY_COORDS).sort();
+  $("home").innerHTML += cities.map((c) => `<option value="${esc(c)}">${esc(c.replace(/\b\w/g, (x) => x.toUpperCase()))}</option>`).join("");
+  try {
+    const savedHome = localStorage.getItem("ecf_home");
+    if (savedHome) ($("home") as HTMLSelectElement).value = savedHome;
+  } catch {
+    /* ignore */
+  }
+  $("home").addEventListener("change", () => {
+    try {
+      localStorage.setItem("ecf_home", ($("home") as HTMLSelectElement).value);
+    } catch {
+      /* ignore */
+    }
+  });
+  for (const id of ["q", "audience", "grade", "subject", "category", "environment", "organizer", "country", "home", "sort", "verified"]) {
     $(id).addEventListener(id === "q" ? "input" : "change", () => {
       $("appliedChips").innerHTML = "";
       render();

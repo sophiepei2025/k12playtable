@@ -85,6 +85,8 @@ export const Extracted = z.object({
   residential: q(z.boolean()),
   outputs: q(z.array(z.enum(["award", "paper", "college_credit", "rec_letter", "portfolio", "certificate", "stipend"]))),
   discontinued: q(z.boolean()),
+  city: q(z.string()),
+  sessions_per_week: q(z.number()),
   // candidates only
   name: q(z.string()),
   description: q(z.string()),
@@ -111,6 +113,8 @@ Keys:
 - residential: true if students live on site
 - outputs: what students get (award, paper, college_credit, rec_letter, portfolio, certificate, stipend)
 - discontinued: true only if the page says the program ended
+- city: city where in-person sessions happen (e.g. "Toronto"), null if online-only or not stated
+- sessions_per_week: how many times per week students attend
 ${candidate ? "- name, description (2 sentences, English), category, environment, organizer_type, subjects (short list)" : "Do not return name/description/category/environment/organizer_type/subjects."}`;
 
 const squash = (s: string) => s.toLowerCase().replace(/\s+/g, " ").replace(/[’‘]/g, "'").replace(/[“”]/g, '"').trim();
@@ -180,6 +184,8 @@ export function toPatch(ex: ExtractedT): { patch: Record<string, unknown>; field
   if (v("residential") !== null) set("residential", () => (patch.residential = v("residential")));
   if (v("outputs")?.length) set("outputs", () => (patch.outputs = v("outputs")));
   if (v("discontinued") === true) set("status", () => (patch.status = "discontinued"));
+  if (v("city")) set("region.city", () => (patch.region = { city: v("city") }));
+  if (v("sessions_per_week") !== null) set("sessions_per_week", () => (patch.sessions_per_week = v("sessions_per_week")));
   return { patch, fields };
 }
 

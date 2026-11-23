@@ -61,7 +61,10 @@ test("exam buffer, passed deadline and missing data", () => {
   const types = conflicts.map((c) => c.type);
   assert.ok(types.includes("exam"));
   assert.ok(types.includes("deadline_passed"));
-  assert.equal(types.filter((t) => t === "missing_data").length, 2);
+  const missing = conflicts.filter((c) => c.type === "missing_data").map((c) => c.detail);
+  assert.ok(missing.some((d) => /program dates unknown/.test(d)));
+  assert.ok(missing.some((d) => /hours per week unknown/.test(d)));
+  assert.ok(missing.some((d) => /late: commute or sessions per week unknown/.test(d)));
 });
 
 test("deadlines: prep lead time, reminders, sorted, past dropped, ICS", () => {
