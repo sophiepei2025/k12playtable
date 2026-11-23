@@ -3,6 +3,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from "node:ht
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { createExtracurricularMcpServer } from "./server.js";
 import { ACTIVITIES } from "../core/data.js";
+import { LlmClient } from "../core/llm.js";
 
 /**
  * Stateless Streamable HTTP (same as edmoat-seo-geo-mcp), without the legacy
@@ -44,6 +45,14 @@ export async function handleHttpRequest(req: IncomingMessage, res: ServerRespons
         transport: { streamableHttp: "/mcp" },
         activities: ACTIVITIES.length,
         paidToolsConfigured: Boolean(process.env.PAID_ACCESS_TOKENS),
+        llm: (() => {
+          try {
+            const c = new LlmClient();
+            return { provider: c.provider, configured: c.configured, familyDataAllowed: c.familyDataOk };
+          } catch (e) {
+            return { error: (e as Error).message };
+          }
+        })(),
       }),
     );
     return;

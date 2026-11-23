@@ -15,7 +15,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
-import { LlmClient, PRICE_USD, type LlmUsage } from "../src/core/llm.js";
+import { LlmClient, PROVIDERS, priceFor, type LlmUsage } from "../src/core/llm.js";
 import type { Activity } from "../src/core/schema.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -251,7 +251,7 @@ async function main() {
   const usage: LlmUsage[] = [];
   const client = new LlmClient({ onUsage: (u: LlmUsage) => usage.push(u) });
   const model = client.modelFor("extract");
-  const price = PRICE_USD[model];
+  const price = priceFor(client.provider, model);
   const estIn = 6500, estOut = 700; // tokens per page (24k chars ≈ 6k tokens + prompt)
   const est = price ? (targets.length * (estIn * price[0] + estOut * price[1])) / 1e6 : null;
 
@@ -265,7 +265,7 @@ async function main() {
     return;
   }
   if (!client.configured) {
-    console.error("DASHSCOPE_API_KEY (or the key for LLM_PROVIDER) is not set. Copy .env.example to .env and fill it in.");
+    console.error(`${PROVIDERS[client.provider].keyEnv} is not set (LLM_PROVIDER=${client.provider}). Copy .env.example to .env and fill it in.`);
     process.exit(1);
   }
   mkdirSync(p("data/review"), { recursive: true });

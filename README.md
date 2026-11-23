@@ -13,8 +13,8 @@
 
 ```bash
 npm install
-cp .env.example .env          # 填 DASHSCOPE_API_KEY（弗吉尼亚 key）
-npm test                      # 32 个测试
+cp .env.example .env          # 填 DASHSCOPE_API_KEY_CN（北京 key）
+npm test                      # 34 个测试
 npm run serve                 # http://localhost:3000 网页 + /mcp + /api
 ```
 
@@ -44,20 +44,24 @@ claude mcp add extracurriculars -- node /Users/chengyinpei/code/课外活动/dis
 
 **远程（部署后）：** `https://<your-domain>/mcp`
 
-## 模型（默认千问）
+## 模型（MVP：千问中国，美国预留）
 
 `src/core/llm.ts` 是统一的 OpenAI 兼容客户端（从 `volcengine-ark-kit` 的 `ArkClient` 移植），按任务分模型：
 
-| 任务 | 默认模型（qwen-us） |
-| --- | --- |
-| 一句话搜索 `nl_search` | qwen3.7-flash |
-| 官网字段抽取 `extract` | qwen-flash |
-| 排期解释 `plan`（V2） | qwen3.7-plus |
+| 任务 | qwen-cn（当前） | qwen-us（预留） |
+| --- | --- | --- |
+| 一句话搜索 `nl_search` | qwen3.7-flash | qwen3.7-flash |
+| 官网字段抽取 `extract` | qwen-flash | qwen-flash |
+| 排期解释 `plan`（V2） | qwen3.7-plus | qwen3.7-plus |
 
-- 默认 `LLM_PROVIDER=qwen-us`，请求发到 `dashscope-us.aliyuncs.com`（美国部署范围）。不要用弗吉尼亚区域的 Global 范围：它可能把请求路由到中国大陆。
-- 含家庭信息的调用如果配到非 `qwen-us` 的 provider，代码会直接拒绝。
-- 可切换 `qwen-intl`、`ark`（火山）、`deepseek`，只限公开数据。
-- 每个任务的模型可以用 `LLM_MODEL_<TASK>` 覆盖。
+- 当前：`LLM_PROVIDER=qwen-cn`，北京节点 `dashscope.aliyuncs.com`，key 填 `DASHSCOPE_API_KEY_CN`。
+- 家庭数据：MVP 阶段用 `LLM_ALLOW_FAMILY_DATA_ON=qwen-cn` 明确允许一句话搜索走中国节点；不设置时，含家庭信息的请求自动改用规则解析，不会发出去。
+- **切美国只改环境变量**：
+  1. 填 `DASHSCOPE_API_KEY_US`
+  2. `LLM_PROVIDER=qwen-us`（走 `dashscope-us.aliyuncs.com`，美国部署范围）
+  3. 删掉 `LLM_ALLOW_FAMILY_DATA_ON`
+- 部署后看 `/health` 的 `llm` 字段，确认当前 provider 和 key 是否生效（不会暴露 key）。
+- 也可切到 `qwen-intl`、`ark`（火山）、`deepseek`，只限公开数据；每个任务的模型可用 `LLM_MODEL_<TASK>` 覆盖。
 
 ## 数据
 
@@ -88,7 +92,7 @@ npm run extract -- --candidates --yes  # 抽取 candidates.csv 里的新活动
 
 `vercel.json` 已配好：构建命令 `npm run build`，静态目录 `public/`，`api/*.ts` 是函数，`/mcp`、`/health` 重写到 `/api/mcp`。需要配置的环境变量：
 
-- `DASHSCOPE_API_KEY`
+- `LLM_PROVIDER=qwen-cn`、`DASHSCOPE_API_KEY_CN`、`LLM_ALLOW_FAMILY_DATA_ON=qwen-cn`
 - `PAID_ACCESS_TOKENS`
 - `ISSUES_REPO` 或 `FEEDBACK_EMAIL`
 

@@ -25,7 +25,7 @@
    - 搜索、筛选、4 个决策字段卡片、「Is it worth it?」、收藏、对比、`.ics`、纠错 / 推荐。
    - 一句话搜索调用 `/api/parse-query`。
 8. **公开 API**：`/api/activities`、`/api/parse-query`、`/llms.txt`、`/openapi.json`。
-9. **测试**：32 个（schema、搜索、信号、排期、LLM mock、抽取引用校验、MCP 内存与 HTTP 协议）全部通过；headless Chrome 走通主要交互，控制台无报错。
+9. **测试**：34 个（schema、搜索、信号、排期、LLM mock、抽取引用校验、MCP 内存与 HTTP 协议）全部通过；headless Chrome 走通主要交互，控制台无报错。
 
 10. **接送成本（S5 扩展、S7、S8）**：`src/core/logistics.ts`。
     - 线上/线下、离家距离（城市坐标 + 两段速度模型估算）、家长接送时间。
@@ -33,9 +33,12 @@
     - 冲突检查计入孩子通勤，新增 commute 和 parent_time 冲突类型。
     - 网页新增家所在城市选择、「Easiest logistics first」排序，卡片显示「Getting there」。
 
+11. **MVP 模型切到千问中国**：新增 provider `qwen-cn`（北京，默认），key 按地区拆成 `DASHSCOPE_API_KEY_CN`、`_US`、`_INTL`（旧的 `DASHSCOPE_API_KEY` 仍兼容）。家庭数据走中国节点需要明确设置 `LLM_ALLOW_FAMILY_DATA_ON=qwen-cn`；成本按各地区价格分别记录；`/health` 显示当前 provider。
+
 ## 待办 / 下一步
-- [ ] 配置 `DASHSCOPE_API_KEY`（弗吉尼亚 key），跑 `npm run extract -- --limit 50 --yes`，再人工审核补齐高频 50 条的 5 个决策字段。
-- [ ] 实测 qwen-us 下 qwen3.7-flash / qwen-flash / qwen3.7-plus 在「美国」部署范围是否可用，以及是否支持 `response_format`。
+- [ ] 配置 `DASHSCOPE_API_KEY_CN`（北京 key，MVP 默认 qwen-cn），跑 `npm run extract -- --limit 50 --yes`，再人工审核补齐高频 50 条的 5 个决策字段。
+- [ ] 实测 qwen-cn 下 `response_format=json_object` 和 `enable_thinking=false` 是否被三个模型接受。
+- [ ] （预留）切美国：填 `DASHSCOPE_API_KEY_US` → `LLM_PROVIDER=qwen-us` → 删 `LLM_ALLOW_FAMILY_DATA_ON`；切之前实测三个模型在「美国」部署范围是否可用。
 - [ ] 往 `data/seed/candidates.csv` 加 20+ 个加拿大本地项目，跑 `--candidates`。
 - [ ] 确定纠错渠道：`ISSUES_REPO` 或 `FEEDBACK_EMAIL`，同时填进 `public/index.html` 的 meta。
 - [ ] 部署 Vercel，确认 `/health`、`/mcp`、`/api/*` 和静态页面都正常。

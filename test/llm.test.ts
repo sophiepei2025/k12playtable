@@ -14,23 +14,41 @@ function mockFetch(replies: string[], seen: Array<{ url: string; body: Record<st
   };
 }
 
-test("qwen-us is the default provider, US endpoint, task routing, thinking off", async () => {
+test("MVP default is qwen-cn (Beijing endpoint), split keys, thinking off, CNY prices logged in USD", async () => {
   const seen: Array<{ url: string; body: Record<string, unknown> }> = [];
   const usage: LlmUsage[] = [];
-  const c = new LlmClient({ env: { DASHSCOPE_API_KEY: "k" }, fetchImpl: mockFetch(['{"a":1}'], seen), onUsage: (u) => usage.push(u) });
-  assert.equal(c.provider, "qwen-us");
-  assert.ok(c.familyDataOk);
+  const c = new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k" }, fetchImpl: mockFetch(['{"a":1}'], seen), onUsage: (u) => usage.push(u) });
+  assert.equal(c.provider, "qwen-cn");
+  assert.equal(c.familyDataOk, false, "mainland endpoint not approved for family data by default");
   await c.chatJson("nl_search", "s", "u", z.object({ a: z.number() }));
-  assert.equal(seen[0].url, "https://dashscope-us.aliyuncs.com/compatible-mode/v1/chat/completions");
+  assert.equal(seen[0].url, "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions");
   assert.equal(seen[0].body.model, "qwen3.7-flash");
   assert.equal(seen[0].body.enable_thinking, false);
   assert.deepEqual(seen[0].body.response_format, { type: "json_object" });
-  assert.ok(Math.abs((usage[0].cost_usd ?? 0) - (1000 * 0.03 + 100 * 0.13) / 1e6) < 1e-12);
+  assert.ok(Math.abs((usage[0].cost_usd ?? 0) - (1000 * 0.2 + 100 * 0.8) / 7.1 / 1e6) < 1e-12);
   assert.equal(c.modelFor("plan"), "qwen3.7-plus");
+  assert.ok(new LlmClient({ env: { DASHSCOPE_API_KEY: "legacy" } }).configured, "old single key name still works");
+});
+
+test("US is reserved: switching is env-only, own key, approved for family data", async () => {
+  const seen: Array<{ url: string; body: Record<string, unknown> }> = [];
+  const us = new LlmClient({ env: { LLM_PROVIDER: "qwen-us", DASHSCOPE_API_KEY_US: "k", DASHSCOPE_API_KEY_CN: "cn" }, fetchImpl: mockFetch(['{"a":1}'], seen) });
+  assert.ok(us.familyDataOk);
+  await us.chat("nl_search", [{ role: "user", content: "x" }], { containsFamilyData: true });
+  assert.equal(seen[0].url, "https://dashscope-us.aliyuncs.com/compatible-mode/v1/chat/completions");
+  assert.equal(new LlmClient({ env: { LLM_PROVIDER: "qwen-us", DASHSCOPE_API_KEY_CN: "cn" } }).configured, false, "CN key is not used for US");
+});
+
+test("family data on qwen-cn needs explicit opt-in", async () => {
+  const blocked = new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k" }, fetchImpl: mockFetch(["{}"]) });
+  await assert.rejects(blocked.chat("nl_search", [{ role: "user", content: "x" }], { containsFamilyData: true }), /LLM_ALLOW_FAMILY_DATA_ON=qwen-cn/);
+  const allowed = new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k", LLM_ALLOW_FAMILY_DATA_ON: "qwen-cn" }, fetchImpl: mockFetch(["{}"]) });
+  assert.ok(allowed.familyDataOk);
+  await allowed.chat("nl_search", [{ role: "user", content: "x" }], { containsFamilyData: true });
 });
 
 test("env overrides model per task; mainland providers refuse family data", async () => {
-  const c = new LlmClient({ env: { DASHSCOPE_API_KEY: "k", LLM_MODEL_NL_SEARCH: "qwen3.8-flash" } });
+  const c = new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k", LLM_MODEL_NL_SEARCH: "qwen3.8-flash" } });
   assert.equal(c.modelFor("nl_search"), "qwen3.8-flash");
   const ds = new LlmClient({ env: { LLM_PROVIDER: "deepseek", DEEPSEEK_API_KEY: "k" }, fetchImpl: mockFetch(["{}"]) });
   await assert.rejects(ds.chat("plan", [{ role: "user", content: "x" }], { containsFamilyData: true }), LlmError);
@@ -47,7 +65,7 @@ test("chatJson repairs once, then fails loudly", async () => {
 
 test("parseQuery: LLM filters are validated; fallback without key", async () => {
   const c = new LlmClient({
-    env: { DASHSCOPE_API_KEY: "k" },
+    env: { DASHSCOPE_API_KEY_CN: "k", LLM_ALLOW_FAMILY_DATA_ON: "qwen-cn" },
     fetchImpl: mockFetch(['{"grade":10,"country":["CA"],"fee":"free","subjects":["Computer Science"],"q":null,"category":[]}']),
   });
   const r = await parseQuery("free CS programs for my grade 10 kid in Canada", ACTIVITIES, c, "2026-11-23");
@@ -55,8 +73,11 @@ test("parseQuery: LLM filters are validated; fallback without key", async () => 
   assert.deepEqual(r.filters, { grade: 10, country: ["CA"], fee: "free", subjects: ["Computer Science"], audience: ["high_school"] });
   const none = await parseQuery("robotics", ACTIVITIES, new LlmClient({ env: {} }));
   assert.deepEqual(none, { filters: { audience: ["high_school"], q: "robotics" }, source: "fallback", note: "LLM not configured; used keyword rules." });
-  const badModel = new LlmClient({ env: { DASHSCOPE_API_KEY: "k" }, fetchImpl: mockFetch(['{"grade":99}', '{"grade":99}']) });
+  const badModel = new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k", LLM_ALLOW_FAMILY_DATA_ON: "qwen-cn" }, fetchImpl: mockFetch(['{"grade":99}', '{"grade":99}']) });
   assert.equal((await parseQuery("x", ACTIVITIES, badModel)).source, "fallback");
+  const notAllowed = await parseQuery("grade 10 robotics", ACTIVITIES, new LlmClient({ env: { DASHSCOPE_API_KEY_CN: "k" }, fetchImpl: mockFetch(["{}"]) }));
+  assert.equal(notAllowed.source, "fallback", "no opt-in → rules, nothing sent");
+  assert.equal(notAllowed.filters.grade, 10);
 });
 
 test("extraction guard: values without a verbatim quote are dropped", () => {
