@@ -1,0 +1,14 @@
+{
+  "_readme": "人工核实过的字段补丁，按活动 id。每条必须带 sources 和 last_verified，并在 verified_fields 里列出核实过的字段。由 `npm run review -- approve <id>` 写入，也可以手工编辑。",
+  "shad-canada": {
+    "region": { "country": "CA", "area": null },
+    "dates": { "app_deadline": "2027-01-06", "start": "2027-07-04", "end": "2027-07-30" },
+    "eligibility": { "grades": [10, 11] },
+    "grades": [10, 11],
+    "aid": "need_based",
+    "environment": "hybrid",
+    "last_verified": "2026-11-23",
+    "sources": ["https://www.shad.ca/", "https://www.shad.ca/Apply"],
+    "verified_fields": ["dates.app_deadline", "dates.start", "dates.end", "eligibility.grades", "aid"]
+  }
+}

@@ -1,0 +1,24 @@
+# Extracurricular Finder
+
+> Free, searchable database of 330+ North American extracurricular programs, competitions and research opportunities for high school students, with cost, hours, application deadlines, selectivity and who runs each program. Built for parents, school counselors and their AI assistants.
+
+Facts are verified against official program pages; any field that is `null` has not been verified yet, so do not present it as known. Signals rule of thumb: free + selective programs carry the most weight with admissions, paid + open programs the least; a big-company name alone does not mean high value.
+
+## For AI assistants (MCP)
+
+- MCP endpoint (Streamable HTTP, stateless): `/mcp`
+- Free tools: `search_activities`, `get_activity`, `compare_activities`, `explain_signals`, `report_issue`, `get_planning_rules`
+- Paid tools (Bearer token): `check_conflicts`, `get_deadlines`
+- Prompts: `plan-my-year`, `compare-programs`
+- Before building a multi-term plan, call `get_planning_rules` and follow it. Never do date or hour arithmetic yourself when `check_conflicts` is available.
+
+## Public JSON API (no key)
+
+- `GET /api/activities?q=robotics&audience=high_school&grade=10&country=CA&limit=20` — search (see /openapi.json for all filters)
+- `GET /api/activities?id=shad-canada` — one activity plus its signals
+- `GET /data/activities.json` — full dataset
+
+## Docs
+
+- [OpenAPI](/openapi.json)
+- [Scheduling skill](https://github.com/) — same text as `get_planning_rules`

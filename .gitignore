@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.vercel/
+data/review/*.json
+data/cache/
+public/app.js
+public/data/

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extracurricular Finder — cost, time, deadlines and real signals for North American families</title>
+  <meta name="description" content="Search 330+ extracurricular programs, competitions and research opportunities for high school students. See cost, hours, deadlines, selectivity and who runs each program." />
+  <!-- Report channel for data issues: set one of these before deploy -->
+  <meta name="issues-repo" content="" />
+  <meta name="feedback-email" content="" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%232563eb%22/%3E%3Cpath d=%22M9 17l5 5 9-11%22 stroke=%22white%22 stroke-width=%223.5%22 fill=%22none%22/%3E%3C/svg%3E" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>Extracurricular Finder</h1>
+    <span class="badge-count" id="totalBadge">Loading…</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn" id="savedBtn">Saved (<span id="savedCount">0</span>)</button>
+    <a class="btn" href="/llms.txt" title="Connect your AI assistant">For AI assistants</a>
+    <button class="btn btn-primary" id="suggestBtn">+ Suggest a program</button>
+  </div>
+</header>
+
+<div class="container">
+  <form class="ask" id="askForm">
+    <input type="search" id="askInput" placeholder="Describe what you need, e.g. “free summer CS programs for grade 10 in Canada”" />
+    <button class="btn btn-primary" type="submit">Find</button>
+    <div class="hint" id="askHint">Plain-English search. We turn it into the filters below; you can adjust them.</div>
+  </form>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="Keyword (Google, robotics, olympiad…)" />
+    <select id="audience">
+      <option value="high_school">High school</option>
+      <option value="undergraduate">University (undergrad)</option>
+      <option value="">All audiences</option>
+    </select>
+    <select id="grade">
+      <option value="">Any grade</option>
+      <option value="9">Grade 9</option><option value="10">Grade 10</option>
+      <option value="11">Grade 11</option><option value="12">Grade 12</option>
+    </select>
+    <select id="subject"><option value="">Any subject</option></select>
+    <select id="category">
+      <option value="">Any type</option>
+      <option>Program</option><option>Competition</option><option>Academic Research</option>
+      <option>Community Service</option><option>Club</option>
+    </select>
+    <select id="environment">
+      <option value="">Online or in person</option>
+      <option value="in_person">In person</option><option value="hybrid">Hybrid</option><option value="online">Online</option>
+    </select>
+    <select id="organizer">
+      <option value="">Any organizer</option>
+      <option value="company">Company</option>
+      <option value="nonprofit">Nonprofit / foundation</option>
+      <option value="university_program">University</option>
+      <option value="education_org">Education company / school</option>
+      <option value="government">Government</option>
+    </select>
+    <select id="country">
+      <option value="">US, Canada or global</option>
+      <option value="CA">Canada</option><option value="US">United States</option><option value="Global">Global / online</option>
+    </select>
+    <select id="sort">
+      <option value="">Best signal first</option>
+      <option value="relevance">Best keyword match</option>
+      <option value="deadline">Deadline soonest</option>
+      <option value="name">A–Z</option>
+    </select>
+    <label class="check"><input type="checkbox" id="verified" /> Verified facts only</label>
+  </div>
+
+  <div class="stats-bar">
+    <span id="resultStats">Loading…</span>
+    <span class="chips" id="appliedChips"></span>
+  </div>
+
+  <div class="grid" id="cardsGrid"></div>
+</div>
+
+<footer>
+  “Unverified” means we have not confirmed it on the official site yet. Always confirm dates and fees with the program.
+  Signals follow one rule: free + selective programs carry the most weight with admissions; paid + open programs the least. A big-company name alone does not mean high value.
+</footer>
+
+<div class="tray" id="tray">
+  <span id="trayText"></span>
+  <button id="compareBtn">Compare</button>
+  <button id="clearCmpBtn">Clear</button>
+</div>
+
+<div class="modal-backdrop" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <h2 id="modalTitle"></h2>
+      <button class="close-btn" id="modalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
