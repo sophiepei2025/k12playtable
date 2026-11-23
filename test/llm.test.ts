@@ -81,20 +81,61 @@ test("parseQuery: LLM filters are validated; fallback without key", async () => 
 });
 
 test("extraction guard: values without a verbatim quote are dropped", () => {
-  const page = htmlToText(`<html><script>var x=1</script><p>Final deadline is January&nbsp;6, 2027.</p><p>Open to students in Grade 10 or 11.</p><p>Tuition is free.</p></html>`);
+  const page = htmlToText(`<html><script>var x=1</script><p>Final deadline is January&nbsp;6, 2027.</p><p>Open to students in Grade 10 or 11.</p><p>Tuition is completely free for all students.</p></html>`);
   assert.ok(!page.includes("var x"));
   const ex = Extracted.parse({
     app_deadline: { value: "2027-01-06", quote: "Final deadline is January 6, 2027" },
-    grades: { value: [10, 11], quote: "Grade 10   or 11" },
-    fee_type: { value: "free", quote: "Tuition is free" },
+    grades: { value: [10, 11], quote: "Open to students in Grade 10   or 11." },
+    fee_type: { value: "free", quote: "Tuition is completely free for all students." },
     selectivity: { value: "highly_selective", quote: "acceptance rate of 5%" }, // invented
     cost: { value: { min: 100, max: 100, currency: "USD" }, quote: null },
   });
-  const { kept, dropped } = verifyQuotes(ex, page);
+  const { kept, dropped, dropped_weak_evidence } = verifyQuotes(ex, page);
   assert.deepEqual(dropped.sort(), ["cost", "selectivity"]);
+  assert.equal(dropped_weak_evidence.length, 0);
   const { patch, fields } = toPatch(kept);
   assert.deepEqual(patch, { fee_type: "free", dates: { app_deadline: "2027-01-06" }, eligibility: { grades: [10, 11] }, grades: [10, 11] });
   assert.deepEqual(fields.sort(), ["dates.app_deadline", "eligibility.grades", "fee_type"]);
+});
+
+test("extraction guard: weak evidence rules (Shad counterexamples + year_inferred)", () => {
+  const shadPage = htmlToText(`
+    <p>Canada’s launchpad for future innovators. Waterloo campus hosts summer sessions.</p>
+    <p>1 in 3 students receive financial support.</p>
+    <p>Apply by Jan 6 · 11:59 p.m. ET for 5 days a week over 5 weeks.</p>
+    <p>Program fee is $7,500 CAD with 8% acceptance rate. Open to Canadian citizens and permanent residents.</p>
+  `);
+  const ex = Extracted.parse({
+    // Rule 1: too short & pure digits (Shad counterexamples)
+    total_weeks: { value: 5, quote: "5" },
+    sessions_per_week: { value: 5, quote: "5" },
+    // Rule 2: numeric field missing unit or number
+    hours_per_week: { value: 40, quote: "Waterloo campus hosts summer sessions." },
+    cost: { value: { min: 7500, max: 7500, currency: "CAD" }, quote: "Program fee is $7,500 CAD with 8% acceptance rate." },
+    acceptance_rate: { value: 0.08, quote: "Program fee is $7,500 CAD with 8% acceptance rate." },
+    // Rule 3: citizenship without qualifier (Shad counterexample) vs with qualifier
+    citizenship: { value: ["CA"], quote: "Canada’s launchpad for future innovators." },
+    international_ok: { value: false, quote: "Open to Canadian citizens and permanent residents." },
+    // Rule 4: aid=full_for_low_income without full/100%/no cost (Shad counterexample)
+    aid: { value: "full_for_low_income", quote: "1 in 3 students receive financial support." },
+    // Rule 5: date without year in quote -> year_inferred: true
+    app_deadline: { value: "2027-01-06", quote: "Apply by Jan 6 · 11:59 p.m. ET" },
+  });
+
+  const { kept, dropped_unquoted, dropped_weak_evidence } = verifyQuotes(ex, shadPage);
+  assert.deepEqual(dropped_unquoted, []);
+
+  const weakByField = Object.fromEntries(dropped_weak_evidence.map((w) => [w.field, w.reason]));
+  assert.ok(weakByField.total_weeks?.includes("too short"));
+  assert.ok(weakByField.sessions_per_week?.includes("too short"));
+  assert.ok(weakByField.hours_per_week?.includes("missing unit keyword"));
+  assert.ok(weakByField.citizenship?.includes("missing eligibility qualifier"));
+  assert.ok(weakByField.aid?.includes("full_for_low_income"));
+
+  assert.ok(kept.cost);
+  assert.ok(kept.acceptance_rate);
+  assert.ok(kept.international_ok);
+  assert.equal((kept.app_deadline as { year_inferred?: boolean } | undefined)?.year_inferred, true);
 });
 
 test("keywordFilters: rules for grade, country, format, type; stopwords removed", async () => {
