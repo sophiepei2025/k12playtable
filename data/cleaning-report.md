@@ -79,3 +79,34 @@
 - `shad-canada` 重跑（含 1 次 schema 报错 + 1 次成功）：`$0.0003 + $0.0003 = $0.0006`
 - 20 条高中活跃项目小批量抽取（124,306 tokens）：`$0.0050`
 - **总计实际花费**：**`$0.0056`**（远低于 `$0.05` 上限）
+
+---
+
+## 5. Gemini 直接全库复检补充（$0 外部模型费用）
+
+不调用外部 Qwen API，由 Gemini 直接对全库 354 条记录、`data/cache/pages/` 缓存页面及 404 死链进行复检，补充以下高置信发现（仍遵循「不替人工 approve」原则）：
+
+### 5.1 确认已停办项目（建议在 `verified.json` 标为 `discontinued`）
+1. **`google-cs-first`**：Google 已于 **2025-06-30** 正式关停 CS First（转向与 Raspberry Pi Foundation 合作 *Experience CS*）。
+2. **`cyberstart`** 与 **`national_cyber_scholarship_competition`**：CyberStart 平台与 NCSF 奖学金项目均已于 **2024 年**结束运营。
+3. **`td-community-leadership-scholarship`**：TD Bank 已正式停办 Community Leadership Scholarship（官网仅保留原住民奖学金等替代项目）。
+
+### 5.2 确认新官网 URL（建议更新 `link`）
+- `beaverworks`：原链接为 `.jpg` 图片 → `https://beaverworks.ll.mit.edu/CMS/bw/BWSI`
+- `anson_clarke_scholars_program` → `https://www.depts.ttu.edu/clarkscholars/`
+- `stanford-aimi-summer-research` → `https://aimi.stanford.edu/education/high-school-students/summer-research-internship`
+- `kenyon-review-patricia-grodd-poetry-prize` → `https://kenyonreview.org/contests/patricia-grodd/`
+- `npr-student-podcast-challenge` → `https://www.npr.org/series/662609200/npr-student-podcast-challenge`
+- `bbc-young-writers-award` → `https://www.english.cam.ac.uk/astao/bbc-short-story-awards`
+- `girls-who-code-sip` → `https://girlswhocode.com/`
+- `ai4all-summer-programs` → `https://ai-4-all.org/`
+
+### 5.3 修复此前失败的 6 条缓存页面抽取（已写入 `data/review/`，待你 approve）
+直接解析 `data/cache/pages/` 原文并通过 `verifyQuotes` 校验，生成 6 份高置信 `review` 提案（`provider: "gemini-direct"`）：
+- `broad-summer-scholars-program`（8 字段：`fee_type=stipend`, `total_weeks=6`, `app_open=2026-11-23`, `app_deadline=2027-01-20`, `start=2027-07-06`, `end=2027-08-13`, `grades=[11]`, `international_ok=false`）
+- `carnegie_mellon_cs_scholars`（6 字段：`fee_type=free`, `total_weeks=4`, `residential=true`, `grades=[10]`, `start=2027-06-26`, `city=Pittsburgh`）
+- `bankofamerica_student_program`（5 字段：`fee_type=stipend`, `hours_per_week=35`, `app_open=2026-12-14`, `app_deadline=2027-02-15`, `international_ok=false`；**注：官网已改为面向升大二在校生，建议同步调整 `audience` 为 `undergraduate`**）
+- `cosmos`（4 字段：`app_open=2027-01-06`, `app_deadline=2027-02-05`, `total_weeks=4`, `residential=true`）
+- `bezos-scholars-program`（2 字段：`app_deadline=2027-01-12`, `grades=[11]`）
+- `chick-fil-a-scholarships`（1 字段：`aid=merit`）
+
