@@ -66,6 +66,14 @@ const DISCONTINUED: Record<string, { note: string; source: string }> = {
   },
 };
 
+/** Known duplicate raw IDs merged into a fuller primary record. */
+const MERGED_RAW_IDS = new Set(["us_national_chemistry_olympiad"]);
+
+/** Raw http:// URLs verified to work over https://. */
+const HTTPS_UPGRADES: Record<string, string> = {
+  "http://www.usaco.org/": "https://www.usaco.org/",
+};
+
 const CANADA_HINT = /\b(canada|canadian|ontario|waterloo|toronto|quebec|british columbia|alberta)\b/i;
 
 export function normalizeRaw(r: RawRecord): Activity {
@@ -88,6 +96,7 @@ export function normalizeRaw(r: RawRecord): Activity {
   }
 
   const name = r.name.trim();
+  const link = HTTPS_UPGRADES[r.link.trim()] ?? r.link.trim();
   const disc = DISCONTINUED[name.toLowerCase()];
   const orgType = ORG_TYPE[r.type] ?? "education_org";
   const category = (r.category[0] ?? "Program").replace("Comnpetition", "Competition");
@@ -97,7 +106,7 @@ export function normalizeRaw(r: RawRecord): Activity {
     id: r.id,
     name,
     description: r.description.trim(),
-    link: r.link.trim(),
+    link,
     logo,
     category,
     subjects: r.subjects ?? [],
@@ -115,7 +124,7 @@ export function normalizeRaw(r: RawRecord): Activity {
     status: disc ? "discontinued" : "active",
     status_note: disc?.note ?? null,
     eligibility: { grades, audience: [...audience] },
-    sources: disc ? [r.link.trim(), disc.source] : [r.link.trim()],
+    sources: disc ? [link, disc.source] : [link],
   });
 }
 
@@ -144,6 +153,7 @@ export function build(): Activity[] {
   const errors: string[] = [];
   const byId = new Map<string, Activity>();
   for (const r of raw) {
+    if (MERGED_RAW_IDS.has(r.id)) continue;
     try {
       byId.set(r.id, normalizeRaw(r));
     } catch (e) {
