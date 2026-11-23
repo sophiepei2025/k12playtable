@@ -34,9 +34,9 @@ const SEL_LABEL: Record<string, string> = { open: "Open to all", selective: "Sel
 /** Filter controls and their "nothing chosen" value. */
 const DEFAULTS: Record<string, string> = {
   grade: "", category: "", environment: "", sort: "",
-  q: "", subject: "", country: "", organizer: "", audience: "high_school",
+  q: "", subject: "", country: "", organizer: "", home: "", audience: "high_school",
 };
-const ADVANCED = ["q", "subject", "country", "organizer", "audience", "verified"];
+const ADVANCED = ["category", "subject", "organizer", "home", "sort", "audience", "verified"];
 
 // ---------- storage (safe) ----------
 function loadSaved(): string[] {
@@ -49,6 +49,7 @@ function loadSaved(): string[] {
 const saved = new Set<string>(loadSaved());
 const compareSet = new Set<string>();
 const openWhy = new Set<string>();
+const openRows = new Set<string>();
 function persist() {
   try {
     localStorage.setItem(SAVED_KEY, JSON.stringify([...saved]));
@@ -56,6 +57,7 @@ function persist() {
     /* private mode */
   }
   $("savedCount").textContent = String(saved.size);
+  $("savedBtn").hidden = saved.size === 0;
 }
 
 let toastTimer = 0;
@@ -103,7 +105,6 @@ function resetFilters() {
   for (const [id, v] of Object.entries(DEFAULTS)) ($(id) as HTMLInputElement).value = v;
   ($("verified") as HTMLInputElement).checked = false;
   ($("askInput") as HTMLInputElement).value = "";
-  $("appliedChips").innerHTML = "";
   $("askHint").textContent = "";
   limit = PAGE;
   render();
@@ -114,6 +115,14 @@ function filterState() {
   if (($("verified") as HTMLInputElement).checked) changed.push("verified");
   const adv = changed.filter((id) => ADVANCED.includes(id)).length;
   return { any: changed.length > 0, adv };
+}
+
+function toggleMore(force?: boolean) {
+  const open = force ?? $("moreFilters").hidden;
+  $("moreFilters").hidden = !open;
+  $("moreScrim").hidden = !open;
+  $("moreBtn").setAttribute("aria-expanded", String(open));
+  if (open && force === undefined) $(matchMedia("(min-width: 601px)").matches ? "category" : "moreClose").focus();
 }
 
 // ---------- render ----------
@@ -138,74 +147,107 @@ function whyHtml(a: Activity) {
     <div class="why-meta">Last checked: ${esc(a.last_verified ?? "not yet")} · <button type="button" class="link-btn report-link" data-act="report">Report an error</button></div>`;
 }
 
-function card(a: Activity) {
-  const tier = tierOf(a);
-  const isSaved = saved.has(a.id);
-  const inCmp = compareSet.has(a.id);
+const STAR = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+
+/** Keep a trailing "(ACRONYM)" on one line so it never breaks as "(B-A-" / "Y-P)". */
+function titleHtml(name: string) {
+  const m = name.match(/^(.*?)(\s*\([^)]+\))$/);
+  return m ? `${esc(m[1])} <span class="nowrap">${esc(m[2]!.trim())}</span>` : esc(name);
+}
+
+function gradeText(a: Activity) {
+  if (a.grades.length) {
+    const g = [...a.grades].sort((x, y) => x - y);
+    return g.length > 1 && g[g.length - 1]! - g[0]! === g.length - 1 ? `Grades ${g[0]}–${g[g.length - 1]}` : `Grade ${g.join(", ")}`;
+  }
+  return a.audience.includes("high_school") ? "High school" : "University";
+}
+
+function rowBody(a: Activity) {
   const why = openWhy.has(a.id);
+  const timing = a.timing_text || a.window_text || null;
   const facts: Array<[string, string | null]> = [
     ["Cost", formatCost(a)],
     ["Deadline", fmtDate(a.dates.app_deadline)],
     ["Time", a.hours_per_week !== null ? `${a.hours_per_week} h / week` : null],
     ["Selectivity", a.selectivity ? SEL_LABEL[a.selectivity] : null],
+    ["Getting there", logisticsText(a)],
+    ["When", timing],
   ];
   const known = facts.filter(([, v]) => v);
-  const missing = facts.filter(([, v]) => !v).map(([k]) => k.toLowerCase());
-  const grades = a.grades.length ? `Grades ${a.grades.join(", ")}` : a.audience.includes("high_school") ? "High school" : "University";
-  const sub = [ORG_LABEL[a.organizer.type], grades, a.region.country === "CA" ? "Canada" : null].filter(Boolean).join(" · ");
-  const timing = a.timing_text || (!a.dates.app_deadline ? a.window_text : "");
+  const missing = facts.slice(0, 4).filter(([, v]) => !v).map(([k]) => k.toLowerCase());
+  return `<div class="row-body" id="b-${esc(a.id)}">
+    ${a.description ? `<p>${esc(a.description)}</p>` : ""}
+    ${known.length ? `<dl class="facts">${known.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
+    ${missing.length ? `<p class="unconfirmed">Not confirmed yet: ${esc(missing.join(", "))}</p>` : ""}
+    ${why ? `<div class="why">${whyHtml(a)}</div>` : ""}
+    <div class="row-actions">
+      <a class="btn btn-primary" href="${esc(a.link)}" target="_blank" rel="noopener">Official site<span class="sr-only"> for ${esc(a.name)} (opens in new tab)</span></a>
+      <button type="button" class="link-btn" data-act="why" aria-expanded="${why}">${why ? "Hide" : "Is it worth it?"}</button>
+      <label class="cmp-check"><input type="checkbox" data-act="cmp" ${compareSet.has(a.id) ? "checked" : ""} /> Compare</label>
+    </div>
+  </div>`;
+}
 
-  return `<article class="card" data-id="${esc(a.id)}" aria-labelledby="t-${esc(a.id)}">
-    <div class="card-top">
-      <span class="tag tier ${tier}" title="Admissions signal">${esc(tier === "unknown" ? "Signal not rated yet" : TIER_LABEL[tier])}</span>
-      ${a.environment ? `<span class="tag env">${esc(ENV_LABEL[a.environment])}</span>` : ""}
-      ${a.status === "discontinued" ? `<span class="tag status-ended">Discontinued</span>` : ""}
-      ${!a.audience.includes("high_school") ? `<span class="tag">University only</span>` : ""}
+function card(a: Activity) {
+  const tier = tierOf(a);
+  const open = openRows.has(a.id);
+  const isSaved = saved.has(a.id);
+  const deadline = fmtDate(a.dates.app_deadline);
+  const meta = [
+    ORG_LABEL[a.organizer.type],
+    gradeText(a),
+    a.environment ? ENV_LABEL[a.environment] : null,
+    a.region.country === "CA" ? "Canada" : null,
+  ].filter(Boolean).map((m) => esc(m));
+  if (deadline) meta.push(`<span class="due">Due ${esc(deadline)}</span>`);
+  const badge =
+    a.status === "discontinued"
+      ? `<span class="tier ended">Ended</span>`
+      : tier !== "unknown"
+        ? `<span class="tier ${tier}">${esc(TIER_LABEL[tier])}</span>`
+        : "";
+  return `<li class="row${open ? " open" : ""}" data-id="${esc(a.id)}">
+    <div class="row-head">
+      <button type="button" class="row-toggle" data-act="toggle" aria-expanded="${open}" aria-controls="b-${esc(a.id)}">
+        <span class="row-title">${titleHtml(a.name)}${badge}</span>
+        <span class="row-meta">${meta.join(" · ")}</span>
+      </button>
+      <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      <button type="button" class="save" data-act="save" aria-pressed="${isSaved}" aria-label="${isSaved ? "Remove from saved" : "Save"}: ${esc(a.name)}">${STAR}</button>
     </div>
-    <h3 class="card-title" id="t-${esc(a.id)}"><a href="${esc(a.link)}" target="_blank" rel="noopener">${esc(a.name)}</a></h3>
-    <p class="card-sub">${esc(sub)}</p>
-    <p class="card-desc">${esc(a.description)}</p>
-    ${known.length ? `<dl class="facts">${known.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
-    <p class="logistics"><b>Getting there:</b> ${esc(logisticsText(a))}${timing ? ` · <b>When:</b> ${esc(timing)}` : ""}</p>
-    ${missing.length ? `<p class="unverified-note">Not confirmed yet: ${esc(missing.join(", "))}. Check the official site.</p>` : ""}
-    <div class="why" id="why-${esc(a.id)}" ${why ? "" : "hidden"}>${why ? whyHtml(a) : ""}</div>
-    <div class="card-actions">
-      <a class="primary-link" href="${esc(a.link)}" target="_blank" rel="noopener">Official site<span class="sr-only"> for ${esc(a.name)} (opens in new tab)</span> →</a>
-      <span class="secondary">
-        <button type="button" class="btn-mini" data-act="why" aria-expanded="${why}" aria-controls="why-${esc(a.id)}">Worth it?</button>
-        <button type="button" class="btn-mini" data-act="save" aria-pressed="${isSaved}">${isSaved ? "Saved" : "Save"}</button>
-        <button type="button" class="btn-mini" data-act="cmp" aria-pressed="${inCmp}">Compare</button>
-      </span>
-    </div>
-  </article>`;
+    ${open ? rowBody(a) : ""}
+  </li>`;
 }
 
 function skeleton() {
   $("cardsGrid").setAttribute("aria-busy", "true");
-  $("cardsGrid").innerHTML = Array.from({ length: 6 }, () => `<div class="card skeleton" aria-hidden="true"></div>`).join("");
+  $("cardsGrid").innerHTML = Array.from({ length: 8 }, () => `<li class="skeleton" aria-hidden="true"></li>`).join("");
 }
 
 function render() {
   const f = readFilters();
   const res = search(ALL, f);
   const st = filterState();
-  $("resultStats").textContent = res.total === 1 ? "1 program" : `${res.total} programs`;
+  $("resultStats").textContent = res.total === 1 ? "1 program" : `${res.total.toLocaleString("en-US")} programs`;
   $("resetBtn").hidden = !st.any;
-  $("moreCount").textContent = st.adv ? `(${st.adv} active)` : "";
+  $("moreCount").textContent = st.adv ? String(st.adv) : "";
+  $("moreDone").textContent = res.total === 1 ? "Show 1 result" : `Show ${res.total.toLocaleString("en-US")} results`;
+  for (const id of ["grade", "environment", "country"]) $(id).classList.toggle("on", val(id) !== "");
   const byId = new Map(ALL.map((a) => [a.id, a]));
   const grid = $("cardsGrid");
   grid.setAttribute("aria-busy", "false");
   if (!res.total) {
-    grid.innerHTML = `<div class="state">
-      <h3>No programs match all of these filters</h3>
-      <p>Try removing a filter, or describe what you need in plain English above.</p>
-      <div class="row"><button type="button" class="btn btn-primary" data-act="reset">Reset filters</button>
-      <button type="button" class="btn" data-act="suggest">Suggest a program we’re missing</button></div></div>`;
+    grid.innerHTML = `<li class="state">
+      <h3>Nothing matches all of these</h3>
+      <p>Remove a filter, or describe what you need in your own words.</p>
+      <div class="actions"><button type="button" class="btn btn-primary" data-act="reset">Reset filters</button>
+      <button type="button" class="btn" data-act="suggest">Suggest a program</button></div></li>`;
   } else {
     grid.innerHTML =
       res.results.map((s) => card(byId.get(s.id)!)).join("") +
       (res.total > res.results.length
-        ? `<div class="more-results"><button type="button" class="btn" data-act="more">Show more (${res.total - res.results.length} left)</button></div>`
+        ? `<li class="more-results"><button type="button" class="btn" data-act="more">Show more</button></li>`
         : "");
   }
   updateTray();
@@ -273,7 +315,7 @@ function showCompare() {
 function showSaved() {
   const items = [...saved].map((id) => getById(ALL, id)).filter((a): a is Activity => !!a);
   if (!items.length)
-    return openModal("Saved programs", `<p>Nothing saved yet. Tap <b>Save</b> on any program to build a shortlist and export its deadlines to your calendar.</p>`);
+    return openModal("Saved programs", `<p>Nothing saved yet. Tap the star on any program to build a shortlist.</p>`);
   const plan: PlanItem[] = items.map((a) => ({
     id: a.id,
     name: a.name,
@@ -354,18 +396,12 @@ async function ask(text: string) {
     const data = (await r.json()) as { filters: SearchFilters; source: string };
     resetFilterValues();
     applyFiltersToUI(data.filters);
-    $("appliedChips").innerHTML = Object.entries(data.filters)
-      .filter(([k]) => !["limit", "offset", "sort"].includes(k))
-      .map(([k, v]) => `<span class="chip">${esc(k.replace(/_/g, " "))}: ${esc(Array.isArray(v) ? v.join(", ") : v)}</span>`)
-      .join("");
-    $("askHint").textContent =
-      data.source === "llm" ? "Here is how we read your request. Adjust any filter below." : "Matched by keywords. Adjust the filters below to narrow it down.";
+    $("askHint").textContent = "Filters set from your search. Change any of them below.";
   } catch {
     resetFilterValues();
     applyFiltersToUI({ q: text });
     $("askHint").textContent = "Smart search is unavailable right now, so we searched by keyword.";
   }
-  if (filterState().adv) ($("moreFilters") as HTMLDetailsElement).open = true;
   limit = PAGE;
   render();
   $("results").scrollIntoView({ block: "start" });
@@ -388,7 +424,7 @@ function wireWaitlist() {
     }
     $("eError").textContent = "";
     $("eEmail").removeAttribute("aria-invalid");
-    const input = { email, role: val("eRole"), grade: val("eGrade") || undefined, note: val("eNote") || undefined };
+    const input = { email, role: val("eRole") };
     const ref = document.referrer ? new URL(document.referrer).hostname : "";
     const link = waitlistMailto(input, UTM, meta("feedback-email"), ref);
     // Hook for analytics once one is added (GA/PostHog read dataLayer).
@@ -397,7 +433,7 @@ function wireWaitlist() {
     if (link) window.location.href = link;
     else navigator.clipboard?.writeText(waitlistBody(input, UTM, ref)).catch(() => {});
     $("earlyForm").innerHTML = `<div class="early-done" role="status">
-      <h3>You’re on the list.</h3>
+      <h3>You’re on the list</h3>
       <p>${link ? "Your email app should open with the details. Hit send and we’ll be in touch." : "Thanks! We’ll email you when early access opens."}</p></div>`;
   });
 }
@@ -413,15 +449,14 @@ async function loadData() {
   } catch {
     $("resultStats").textContent = "Couldn’t load programs";
     $("cardsGrid").setAttribute("aria-busy", "false");
-    $("cardsGrid").innerHTML = `<div class="state error" role="alert"><h3>We couldn’t load the program list</h3>
-      <p>Check your connection and try again.</p><div class="row"><button type="button" class="btn btn-primary" data-act="retry">Try again</button></div></div>`;
+    $("cardsGrid").innerHTML = `<li class="state error" role="alert"><h3>We couldn’t load the program list</h3>
+      <p>Check your connection and try again.</p><div class="actions"><button type="button" class="btn btn-primary" data-act="retry">Try again</button></div></li>`;
     return false;
   }
 }
 
 async function start() {
   if (!(await loadData())) return;
-  $("totalCount").textContent = String(ALL.length);
   const subj = new Map<string, number>();
   for (const a of ALL) for (const s of a.subjects) subj.set(s, (subj.get(s) ?? 0) + 1);
   $("subject").innerHTML += [...subj.entries()]
@@ -456,7 +491,6 @@ function init() {
   });
   for (const id of ["q", "audience", "grade", "subject", "category", "environment", "organizer", "country", "home", "sort", "verified"]) {
     $(id).addEventListener(id === "q" ? "input" : "change", () => {
-      $("appliedChips").innerHTML = "";
       limit = PAGE;
       render();
     });
@@ -474,6 +508,26 @@ function init() {
     }),
   );
   $("resetBtn").addEventListener("click", resetFilters);
+  $("moreBtn").addEventListener("click", () => toggleMore());
+  $("moreClose").addEventListener("click", () => toggleMore(false));
+  $("moreScrim").addEventListener("click", () => toggleMore(false));
+  $("moreDone").addEventListener("click", () => {
+    toggleMore(false);
+    $("results").focus();
+  });
+  $("cardsGrid").addEventListener("change", (e) => {
+    const box = e.target as HTMLInputElement;
+    if (box.dataset.act !== "cmp") return;
+    const id = box.closest<HTMLElement>(".row")!.dataset.id!;
+    if (box.checked) {
+      if (compareSet.size >= 3) {
+        box.checked = false;
+        return toast("You can compare up to 3 programs.");
+      }
+      compareSet.add(id);
+    } else compareSet.delete(id);
+    updateTray();
+  });
   $("cardsGrid").addEventListener("click", (e) => {
     const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-act]");
     if (!btn) return;
@@ -485,35 +539,31 @@ function init() {
       limit += PAGE;
       return render();
     }
-    const id = btn.closest<HTMLElement>(".card")!.dataset.id!;
+    const row = btn.closest<HTMLElement>(".row")!;
+    const id = row.dataset.id!;
     const a = getById(ALL, id)!;
     if (act === "save") {
       if (saved.has(id)) saved.delete(id);
       else saved.add(id);
       persist();
       btn.setAttribute("aria-pressed", String(saved.has(id)));
-      btn.textContent = saved.has(id) ? "Saved" : "Save";
-      toast(saved.has(id) ? "Saved. Open “Saved” to export deadlines." : "Removed from saved.");
-    } else if (act === "cmp") {
-      if (compareSet.has(id)) compareSet.delete(id);
-      else if (compareSet.size < 3) compareSet.add(id);
-      else return toast("You can compare up to 3 programs.");
-      btn.setAttribute("aria-pressed", String(compareSet.has(id)));
-      updateTray();
-    } else if (act === "why") {
-      if (openWhy.has(id)) openWhy.delete(id);
+      btn.setAttribute("aria-label", `${saved.has(id) ? "Remove from saved" : "Save"}: ${a.name}`);
+      toast(saved.has(id) ? "Saved" : "Removed from saved");
+    } else if (act === "toggle" || act === "why") {
+      if (act === "toggle") {
+        if (openRows.has(id)) openRows.delete(id);
+        else openRows.add(id);
+      } else if (openWhy.has(id)) openWhy.delete(id);
       else openWhy.add(id);
-      const open = openWhy.has(id);
-      const box = $(`why-${id}`);
-      box.innerHTML = open ? whyHtml(a) : "";
-      box.hidden = !open;
-      btn.setAttribute("aria-expanded", String(open));
+      row.outerHTML = card(a);
+      const fresh = document.querySelector<HTMLElement>(`.row[data-id="${CSS.escape(id)}"] [data-act="${act}"]`);
+      fresh?.focus();
     } else if (act === "report") showReport(a);
   });
   $("compareBtn").addEventListener("click", showCompare);
   $("clearCmpBtn").addEventListener("click", () => {
     compareSet.clear();
-    document.querySelectorAll('button[data-act="cmp"]').forEach((b) => b.setAttribute("aria-pressed", "false"));
+    document.querySelectorAll<HTMLInputElement>('input[data-act="cmp"]').forEach((b) => (b.checked = false));
     updateTray();
   });
   $("savedBtn").addEventListener("click", showSaved);
@@ -522,7 +572,10 @@ function init() {
   $("modal").addEventListener("click", (e) => {
     if (e.target === $("modal")) closeModal();
   });
-  document.addEventListener("keydown", trapFocus);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !$("moreFilters").hidden && !$("modal").classList.contains("open")) toggleMore(false);
+    trapFocus(e);
+  });
   void start();
 }
 
