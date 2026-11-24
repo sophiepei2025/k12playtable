@@ -65,11 +65,12 @@ async function fetchPage(url: string): Promise<string> {
 }
 
 // ---------- extraction schema ----------
-const q = <T extends z.ZodTypeAny>(v: T) => z.object({ value: v.nullable(), quote: z.string().nullable() }).nullable().optional();
+const q = <T extends z.ZodTypeAny>(v: T) =>
+  z.object({ value: v.nullable().optional(), quote: z.string().nullable().optional() }).nullable().optional();
 
 export const Extracted = z.object({
   fee_type: q(z.enum(["free", "paid", "stipend"])),
-  cost: q(z.object({ min: z.number(), max: z.number(), currency: z.enum(["USD", "CAD"]) })),
+  cost: q(z.object({ min: z.number(), max: z.number(), currency: z.enum(["USD", "CAD"]).default("USD") })),
   aid: q(z.enum(["none", "need_based", "full_for_low_income", "merit"])),
   app_open: q(z.string()),
   app_deadline: q(z.string()),
@@ -98,41 +99,138 @@ export const Extracted = z.object({
 export type ExtractedT = z.infer<typeof Extracted>;
 
 const SYSTEM = (candidate: boolean) => `You extract facts about a student program from its official web page text.
-Return ONLY JSON. For each key, return {"value": ..., "quote": "..."} where quote is a short EXACT substring copied from the page that states the fact, or null if the page does not state it. Never guess; never use outside knowledge. If unsure, use null.
+Return ONLY JSON. For each key, return {"value": ..., "quote": "..."} where quote is a full, exact sentence or phrase (>= 20 characters) copied verbatim from the page that states the fact, or null if the page does not state it. Never guess; never use outside knowledge. If unsure, use null.
 Keys:
 - fee_type: free | paid | stipend (students are paid)
 - cost: {min, max, currency USD|CAD} program fee for the student
-- aid: none | need_based | full_for_low_income | merit
-- app_open, app_deadline, start, end: dates as YYYY-MM-DD for the NEXT upcoming cycle after ${today}; if the year is not stated, null
-- hours_per_week, total_weeks: numbers
+- aid: none | need_based | full_for_low_income (only if page explicitly states full / 100% / no cost) | merit
+- app_open, app_deadline, start, end: dates as YYYY-MM-DD for the NEXT upcoming cycle after ${today}; if the year is not stated, infer the next upcoming year or leave null
+- hours_per_week, total_weeks: numbers (quote must include the number and unit like week/hour)
 - selectivity: open (anyone may join/register) | selective (application reviewed, limited spots) | highly_selective (states acceptance under ~10% or very competitive)
 - acceptance_rate: 0-1 only if the page states a rate
 - grades: list of eligible school grades as integers, e.g. [9, 10, 11, 12]; expand ranges like "9-12" into separate integers
-- citizenship: e.g. ["US"], ["CA"] if restricted
-- international_ok: true/false only if stated
+- citizenship: e.g. ["US"], ["CA"] only if eligibility/citizenship/residency restriction is explicitly stated
+- international_ok: true/false only if explicitly stated
 - residential: true if students live on site
 - outputs: what students get (award, paper, college_credit, rec_letter, portfolio, certificate, stipend)
 - discontinued: true only if the page says the program ended
 - city: city where in-person sessions happen (e.g. "Toronto"), null if online-only or not stated
-- sessions_per_week: how many times per week students attend
+- sessions_per_week: how many times per week students attend (quote must include the number and unit)
 ${candidate ? "- name, description (2 sentences, English), category, environment, organizer_type, subjects (short list)" : "Do not return name/description/category/environment/organizer_type/subjects."}`;
 
 const squash = (s: string) => s.toLowerCase().replace(/\s+/g, " ").replace(/[’‘]/g, "'").replace(/[“”]/g, '"').trim();
 
-/** Drop any field whose quote is missing or not found in the page text. */
-export function verifyQuotes(ex: ExtractedT, pageText: string): { kept: ExtractedT; dropped: string[] } {
+export interface WeakEvidenceItem {
+  field: string;
+  value: unknown;
+  quote: string;
+  reason: string;
+}
+
+const NUMERIC_UNIT_RULES: Record<string, { unitRe: RegExp; label: string }> = {
+  hours_per_week: { unitRe: /\b(hours?|hrs?)\b/i, label: "hour/hr" },
+  total_weeks: { unitRe: /\b(weeks?|wks?|months?|days?)\b/i, label: "week/month/day" },
+  sessions_per_week: { unitRe: /\b(sessions?|days?|times?|meetings?|classes?|weeks?)\b/i, label: "session/day/time" },
+  acceptance_rate: { unitRe: /(%|\bpercent|\bacceptance\b|\badmitted\b|\brate\b)/i, label: "%/percent/rate" },
+  cost: { unitRe: /(\$|\busd\b|\bcad\b|\bdollars?\b|\bfree\b|\bcost\b|\bfee\b|\btuition\b)/i, label: "$/USD/CAD/fee" },
+};
+
+const ELIGIBILITY_QUALIFIER_RE = /\b(citizen|citizenship|resident|residency|permanent|eligible|eligibility|international|visa|national|domicile|passport|status|abroad|outside)\b/i;
+const FULL_AID_RE = /\b(full|100%|no cost|zero cost|tuition[- ]free|all expenses|full[- ]ride|full[- ]tuition|completely covered)\b/i;
+const DATE_FIELDS = new Set(["app_open", "app_deadline", "start", "end"]);
+
+function quoteHasNumber(quote: string, num: number): boolean {
+  const s = String(num);
+  const qNoComma = quote.replace(/,/g, "");
+  if (new RegExp(`(?<!\\d)${s.replace(".", "\\.")}(?!\\d)`).test(qNoComma)) return true;
+  return false;
+}
+
+function checkEvidenceStrength(field: string, value: unknown, quote: string): string | null {
+  const clean = squash(quote);
+  if (clean.length < 20) {
+    return `quote too short (${clean.length} < 20 chars)`;
+  }
+  if (/^\d+(?:[.,]\d+)?$/.test(clean)) {
+    return "quote cannot be pure digits";
+  }
+  if (field in NUMERIC_UNIT_RULES) {
+    const rule = NUMERIC_UNIT_RULES[field]!;
+    if (!rule.unitRe.test(quote)) {
+      return `numeric field '${field}' quote missing unit keyword (${rule.label})`;
+    }
+    if (field === "cost" && typeof value === "object" && value !== null) {
+      const c = value as { min?: number; max?: number };
+      const hasMin = typeof c.min === "number" && quoteHasNumber(quote, c.min);
+      const hasMax = typeof c.max === "number" && quoteHasNumber(quote, c.max);
+      if (!hasMin && !hasMax) {
+        return `cost quote missing extracted number (${c.min ?? "?"}–${c.max ?? "?"})`;
+      }
+    } else if (field === "acceptance_rate" && typeof value === "number") {
+      const pct = Math.round(value * 1000) / 10;
+      const pctInt = Math.round(value * 100);
+      if (!quoteHasNumber(quote, value) && !quoteHasNumber(quote, pct) && !quoteHasNumber(quote, pctInt)) {
+        return `acceptance_rate quote missing extracted number (${value} / ${pct}%)`;
+      }
+    } else if (typeof value === "number") {
+      if (!quoteHasNumber(quote, value)) {
+        return `numeric field '${field}' quote missing extracted number (${value})`;
+      }
+    }
+  }
+  if (field === "citizenship" || field === "international_ok") {
+    if (!ELIGIBILITY_QUALIFIER_RE.test(quote)) {
+      return `${field} quote missing eligibility qualifier (citizen/resident/eligible/international/permanent)`;
+    }
+  }
+  if (field === "aid" && value === "full_for_low_income") {
+    if (!FULL_AID_RE.test(quote)) {
+      return "aid='full_for_low_income' requires full/100%/no cost in quote (generic financial support is at most partial/need_based)";
+    }
+  }
+  return null;
+}
+
+/** Drop any field whose quote is missing, not found in page text, or fails strength rules. */
+export function verifyQuotes(
+  ex: ExtractedT,
+  pageText: string,
+): {
+  kept: ExtractedT;
+  dropped: string[];
+  dropped_unquoted: string[];
+  dropped_weak_evidence: WeakEvidenceItem[];
+} {
   const hay = squash(pageText);
   const kept: Record<string, unknown> = {};
-  const dropped: string[] = [];
+  const dropped_unquoted: string[] = [];
+  const dropped_weak_evidence: WeakEvidenceItem[] = [];
   for (const [k, v] of Object.entries(ex)) {
     if (!v || v.value === null || v.value === undefined) continue;
     if (!v.quote || !hay.includes(squash(v.quote))) {
-      dropped.push(k);
+      dropped_unquoted.push(k);
       continue;
+    }
+    const weakReason = checkEvidenceStrength(k, v.value, v.quote);
+    if (weakReason) {
+      dropped_weak_evidence.push({ field: k, value: v.value, quote: v.quote, reason: weakReason });
+      continue;
+    }
+    if (DATE_FIELDS.has(k) && typeof v.value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v.value)) {
+      const year = v.value.slice(0, 4);
+      if (!v.quote.includes(year)) {
+        kept[k] = { ...v, year_inferred: true };
+        continue;
+      }
     }
     kept[k] = v;
   }
-  return { kept: kept as ExtractedT, dropped };
+  return {
+    kept: kept as ExtractedT,
+    dropped: dropped_unquoted,
+    dropped_unquoted,
+    dropped_weak_evidence,
+  };
 }
 
 const isDate = (s: unknown) => typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s);
@@ -249,7 +347,7 @@ async function runOne(client: LlmClient, t: Target) {
   writeFileSync(p("data/cache/pages", `${t.id}.txt`), text);
   if (text.length < 200) throw new Error("page text too short (JS-rendered site?)");
   const raw = await client.chatJson("extract", SYSTEM(t.candidate), `Program: ${t.name}\nURL: ${t.link}\n\nPAGE TEXT:\n${text}`, Extracted, { maxTokens: 1200 });
-  const { kept, dropped } = verifyQuotes(raw, text);
+  const { kept, dropped_unquoted, dropped_weak_evidence } = verifyQuotes(raw, text);
   const { patch, fields } = toPatch(kept);
   const review = {
     id: t.id,
@@ -261,10 +359,11 @@ async function runOne(client: LlmClient, t: Target) {
     model: client.modelFor("extract"),
     proposed_patch: { ...patch, last_verified: today, sources: [t.link], verified_fields: fields },
     evidence: kept,
-    dropped_unquoted: dropped,
+    dropped_unquoted,
+    dropped_weak_evidence,
   };
   writeFileSync(p("data/review", `${t.id}.json`), JSON.stringify(review, null, 2) + "\n");
-  return { fields: fields.length, dropped: dropped.length };
+  return { fields: fields.length, dropped: dropped_unquoted.length, weak: dropped_weak_evidence.length };
 }
 
 async function main() {
@@ -298,7 +397,11 @@ async function main() {
         try {
           const r = await runOne(client, t);
           ok++;
-          console.log(`  ✓ ${t.id}: ${r.fields} field(s) proposed${r.dropped ? `, ${r.dropped} dropped (quote not found)` : ""}`);
+          const notes = [
+            r.dropped ? `${r.dropped} unquoted` : "",
+            r.weak ? `${r.weak} weak` : "",
+          ].filter(Boolean).join(", ");
+          console.log(`  ✓ ${t.id}: ${r.fields} field(s) proposed${notes ? ` (${notes} dropped)` : ""}`);
         } catch (e) {
           failed++;
           console.log(`  ✗ ${t.id}: ${(e as Error).message.slice(0, 160)}`);

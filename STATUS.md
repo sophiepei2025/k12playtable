@@ -34,6 +34,7 @@
     - 网页新增家所在城市选择、「Easiest logistics first」排序，卡片显示「Getting there」。
 
 11. **MVP 模型切到千问中国**：新增 provider `qwen-cn`（北京，默认），key 按地区拆成 `DASHSCOPE_API_KEY_CN`、`_US`、`_INTL`（旧的 `DASHSCOPE_API_KEY` 仍兼容）。家庭数据走中国节点需要明确设置 `LLM_ALLOW_FAMILY_DATA_ON=qwen-cn`；成本按各地区价格分别记录；`/health` 显示当前 provider。
+12. **主流媒体与文学杂志赛事入库**：往 `data/overrides/added.json` 补充 22 项主流媒体/文学期刊/文化基金会年度学生写作与新闻竞赛（*Harvard Crimson*、*HIR*、*BBC*、*FT & RGS*、*The Guardian*、*NPR*、*Pulitzer*、*C-SPAN*、*Kenyon Review*、*Adroit*、*One Teen Story*、*Concord Review*、*Polyphony Lit*、*Rattle*、*Stone Soup*、*Teen Ink*、*Bennington*、*Foyle*、*Orwell*、*Bow Seat*、*Quill and Scroll*、*SPJ/JEA*），重编 `data/activities.json` 与 `public/data/activities.json` 至 **355 条**，34 项测试全通过。
 
 ## 待办 / 下一步
 - [ ] 配置 `DASHSCOPE_API_KEY_CN`（北京 key，MVP 默认 qwen-cn），跑 `npm run extract -- --limit 50 --yes`，再人工审核补齐高频 50 条的 5 个决策字段。

@@ -27,8 +27,9 @@ interface Review {
   fetched_at: string;
   model: string;
   proposed_patch: Record<string, unknown> & { verified_fields: string[] };
-  evidence: Record<string, { value: unknown; quote: string }>;
+  evidence: Record<string, { value: unknown; quote: string; year_inferred?: boolean }>;
   dropped_unquoted: string[];
+  dropped_weak_evidence?: Array<{ field: string; value: unknown; quote: string; reason: string }>;
 }
 
 const load = (rid: string): Review => {
@@ -106,8 +107,17 @@ switch (cmd) {
   case "show": {
     const r = load(id);
     console.log(`${r.name}\n${r.url}\nfetched ${r.fetched_at} · ${r.model}\n`);
-    for (const [k, v] of Object.entries(r.evidence)) console.log(`  ${k.padEnd(18)} ${JSON.stringify(v.value)}\n  ${"".padEnd(18)} “${v.quote}”`);
+    for (const [k, v] of Object.entries(r.evidence)) {
+      const flag = v.year_inferred ? " \x1b[33m[YEAR_INFERRED]\x1b[0m" : "";
+      console.log(`  ${k.padEnd(18)} ${JSON.stringify(v.value)}${flag}\n  ${"".padEnd(18)} “${v.quote}”`);
+    }
     if (r.dropped_unquoted.length) console.log(`\n  dropped (no matching quote on page): ${r.dropped_unquoted.join(", ")}`);
+    if (r.dropped_weak_evidence?.length) {
+      console.log(`\n  dropped (weak evidence):`);
+      for (const w of r.dropped_weak_evidence) {
+        console.log(`    - ${w.field} (${JSON.stringify(w.value)}): ${w.reason} | quote: “${w.quote}”`);
+      }
+    }
     console.log(`\nproposed patch:\n${JSON.stringify(r.proposed_patch, null, 2)}`);
     break;
   }
