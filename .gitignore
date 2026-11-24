@@ -6,3 +6,4 @@ data/review/*.json
 data/cache/
 public/app.js
 public/data/
+public/planner.js

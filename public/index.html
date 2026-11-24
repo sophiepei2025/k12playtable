@@ -3,104 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Extracurricular Finder — cost, hours, deadlines and admissions value</title>
-  <meta name="description" content="Search extracurricular programs, competitions and research opportunities for North American high school students. Cost, weekly hours, deadlines, selectivity and the drive from home." />
-  <meta property="og:title" content="Extracurricular Finder" />
-  <meta property="og:description" content="Pick extracurriculars that are worth your child's time and your money." />
-  <!-- Report + waitlist inbox: set one of these before deploy -->
-  <meta name="issues-repo" content="" />
+  <title>Break Planner — every PA day, long weekend and break for your school board</title>
+  <meta name="description" content="See every PA day, long weekend and school break for your Ontario school board, then plan them early." />
+  <meta property="og:title" content="Break Planner" />
+  <meta property="og:description" content="Another break. Not sure what your kids are doing?" />
   <meta name="feedback-email" content="" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231d4ed8%22/%3E%3Cpath d=%22M9 17l5 5 9-11%22 stroke=%22white%22 stroke-width=%223.5%22 fill=%22none%22/%3E%3C/svg%3E" />
 </head>
 <body>
-<a class="skip" href="#results">Skip to results</a>
+<a class="skip" href="#calendar">Skip to calendar</a>
 <header class="topbar">
-  <a class="brand" href="/" aria-label="Extracurricular Finder home">
-    <span class="logo" aria-hidden="true"></span>Extracurricular Finder
-  </a>
-  <a class="top-link" href="#early-access">Early access</a>
+  <a class="brand" href="/" aria-label="Break Planner home"><span class="logo" aria-hidden="true"></span>Break Planner</a>
+  <nav class="top-nav"><a class="top-link" href="/browse">Browse programs</a><a class="top-link" href="/browse#early-access">Early access</a></nav>
 </header>
 
 <main class="wrap">
-  <section class="search" aria-labelledby="pageTitle">
-    <h1 id="pageTitle">Find extracurriculars worth the time.</h1>
-    <form class="ask" id="askForm" role="search">
-      <label for="askInput" class="sr-only">Describe what you are looking for</label>
-      <input type="search" id="askInput" autocomplete="off" placeholder="e.g. robotics, grade 10" />
-      <button class="btn btn-primary" type="submit">Search</button>
+  <section class="search" id="setup" aria-labelledby="pageTitle">
+    <h1 id="pageTitle">Another break. Not sure what your kids are doing?</h1>
+    <p class="lede">See every PA day, long weekend and break for your school board, then plan them early.</p>
+    <form class="setup-form" id="setupForm" novalidate>
+      <div class="field"><label for="city">City</label>
+        <input id="city" list="cityList" autocomplete="address-level2" placeholder="e.g. Markham" required aria-describedby="setupError" /><datalist id="cityList"></datalist></div>
+      <div class="field"><label for="schoolType">School</label>
+        <select id="schoolType"><option value="public">Public</option><option value="catholic">Catholic</option></select></div>
+      <div class="field"><label for="gradeSel">Grade</label>
+        <select id="gradeSel">
+          <option value="12">Grade 12</option><option value="11">Grade 11</option><option value="10">Grade 10</option><option value="9" selected>Grade 9</option>
+          <option value="8">Grade 8</option><option value="7">Grade 7</option><option value="6">Grade 6</option><option value="5">Grade 5</option>
+          <option value="4">Grade 4</option><option value="3">Grade 3</option><option value="2">Grade 2</option><option value="1">Grade 1</option><option value="0">Kindergarten</option>
+        </select></div>
+      <button class="btn btn-primary" type="submit">Show my calendar</button>
+      <p class="error" id="setupError" role="alert"></p>
     </form>
-    <p class="examples" aria-label="Example searches">Try
-      <button type="button" class="example" data-q="Online math competitions for grade 9">online math contests</button>,
-      <button type="button" class="example" data-q="Robotics programs and competitions">robotics</button>,
-      <button type="button" class="example" data-q="Programs in Canada that are open to international students">programs in Canada</button>
-    </p>
-    <p class="hint" id="askHint" aria-live="polite"></p>
+    <p class="coverage">GTA and Waterloo Region school boards, 2026–27. More regions coming.</p>
   </section>
 
-  <section class="filters" aria-label="Filters">
-    <label class="pick"><span class="sr-only">Grade</span>
-      <select id="grade"><option value="">Grade</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option></select></label>
-    <label class="pick"><span class="sr-only">Format</span>
-      <select id="environment"><option value="">Format</option><option value="online">Online</option><option value="in_person">In person</option><option value="hybrid">Hybrid</option></select></label>
-    <label class="pick"><span class="sr-only">Where</span>
-      <select id="country"><option value="">Country</option><option value="CA">Canada</option><option value="US">US</option><option value="Global">Global</option></select></label>
-    <button type="button" class="pick more-btn" id="moreBtn" aria-expanded="false" aria-controls="moreFilters">More<span id="moreCount"></span></button>
-    <input type="hidden" id="q" />
-    <div class="scrim" id="moreScrim" hidden></div>
-    <div class="more" id="moreFilters" hidden role="dialog" aria-labelledby="moreTitle">
-      <div class="sheet-head"><h2 id="moreTitle">More filters</h2><button type="button" class="close-btn" id="moreClose" aria-label="Close filters">&times;</button></div>
-      <div class="field"><label for="category">Type</label>
-        <select id="category"><option value="">Any type</option><option>Program</option><option>Competition</option><option>Academic Research</option><option>Community Service</option><option>Club</option></select></div>
-      <div class="field"><label for="subject">Subject</label><select id="subject"><option value="">Any subject</option></select></div>
-      <div class="field"><label for="organizer">Run by</label>
-        <select id="organizer"><option value="">Anyone</option><option value="university_program">University</option><option value="nonprofit">Nonprofit</option><option value="company">Company</option><option value="education_org">Education company</option><option value="government">Government</option></select></div>
-      <div class="field"><label for="home">Your city</label><select id="home"><option value="">Not set</option></select></div>
-      <div class="field"><label for="sort">Sort by</label>
-        <select id="sort"><option value="">Strongest signal</option><option value="convenience">Easiest to get to</option><option value="deadline">Deadline soonest</option><option value="relevance">Best match</option><option value="name">A–Z</option></select></div>
-      <div class="field"><label for="audience">Show programs for</label>
-        <select id="audience"><option value="high_school">High school students</option><option value="undergraduate">University students</option><option value="">Everyone</option></select></div>
-      <label class="check"><input type="checkbox" id="verified" /> Confirmed facts only</label>
-      <button type="button" class="btn btn-primary sheet-done" id="moreDone">Show results</button>
+  <section class="cal" id="calendar" hidden tabindex="-1" aria-labelledby="calTitle">
+    <div class="cal-head">
+      <h2 id="calTitle"></h2>
+      <button type="button" class="link-btn" id="changeBtn">Change</button>
     </div>
-  </section>
+    <p class="note" id="calNote"></p>
 
-  <section id="results" class="results" aria-labelledby="resultStats" tabindex="-1">
-    <div class="stats-bar">
-      <h2 id="resultStats" aria-live="polite">Loading programs…</h2>
-      <span class="stats-actions">
-        <button type="button" class="link-btn" id="resetBtn" hidden>Reset</button>
-        <button type="button" class="link-btn" id="savedBtn" hidden>Saved (<span id="savedCount">0</span>)</button>
-      </span>
+    <h3 class="sub">Coming up</h3>
+    <ul class="breaks" id="breaks"></ul>
+
+    <div class="month-nav">
+      <button type="button" class="icon-btn" id="prevMonth" aria-label="Previous months">&#8249;</button>
+      <span id="monthRange" aria-live="polite"></span>
+      <button type="button" class="icon-btn" id="nextMonth" aria-label="Next months">&#8250;</button>
     </div>
-    <p class="note">Costs and deadlines are still being confirmed. Always check the official site.</p>
-    <ul class="list" id="cardsGrid" aria-busy="true"></ul>
+    <div class="months" id="months"></div>
+    <ul class="legend" aria-label="Legend">
+      <li><i class="k-holiday"></i>Holiday</li><li><i class="k-pa"></i>PA day</li><li><i class="k-break"></i>School break</li><li><i class="k-weekend"></i>Weekend</li><li><i class="k-plan"></i>Your plan</li>
+    </ul>
+
+    <div class="plans-head">
+      <h3 class="sub">Your plans</h3>
+      <button type="button" class="link-btn" id="icsBtn" hidden>Add to my calendar (.ics)</button>
+    </div>
+    <ul class="plans" id="plans"></ul>
+  </section>
+  <section class="wall" id="wall" aria-label="Companies with programs for high school students" hidden>
+    <p><span class="wall-lead">High school programs from</span> <span id="wallNames"></span> <a href="/browse">and more</a></p>
   </section>
 
-  <section class="early" id="early-access" aria-labelledby="earlyTitle">
-    <h2 id="earlyTitle">Get early access to the planner</h2>
-    <p>It checks overlaps, weekly hours and drop-off time, then reminds you of deadlines.</p>
-    <form class="early-form" id="earlyForm" novalidate>
-      <label for="eEmail" class="sr-only">Email</label>
-      <input id="eEmail" type="email" autocomplete="email" required placeholder="you@example.com" aria-describedby="eError" />
-      <label for="eRole" class="sr-only">I am a</label>
-      <select id="eRole"><option value="parent">Parent</option><option value="counselor">Counselor</option><option value="student">Student</option><option value="other">Other</option></select>
-      <button class="btn btn-primary" type="submit">Join</button>
-      <p class="error" id="eError" role="alert"></p>
-    </form>
-  </section>
 </main>
 
 <footer class="wrap">
-  <button type="button" class="link-btn" id="suggestBtn">Suggest a program</button> · <a href="/llms.txt">Use with your AI assistant</a>
+  Dates come from each board's official calendar. <a href="/browse">Browse programs</a> · <a href="/llms.txt">Use with your AI assistant</a>
 </footer>
-
-<div class="tray" id="tray" role="region" aria-label="Compare">
-  <span id="trayText"></span>
-  <button type="button" id="compareBtn">Compare</button>
-  <button type="button" id="clearCmpBtn" class="tray-clear">Clear</button>
-</div>
 
 <div class="modal-backdrop" id="modal" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -111,8 +85,7 @@
     <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
-
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="/app.js"></script>
+<script type="module" src="/planner.js"></script>
 </body>
 </html>

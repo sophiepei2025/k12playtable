@@ -476,6 +476,12 @@ async function start() {
   } catch {
     /* ignore */
   }
+  // deep link from the planner home page: /browse?q=Google
+  const q = new URLSearchParams(location.search).get("q");
+  if (q) {
+    ($("q") as HTMLInputElement).value = q;
+    ($("askInput") as HTMLInputElement).value = q;
+  }
   render();
 }
 

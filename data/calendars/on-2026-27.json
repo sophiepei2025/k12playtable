@@ -1,0 +1,159 @@
+{
+  "schema": "recess.board-calendar.v1",
+  "region": "CA-ON",
+  "school_year": "2026-27",
+  "checked": "2026-11-23",
+  "first_day": "2026-09-08",
+  "first_day_note": "First instructional day inferred from PA days Sep 2–3 and Labour Day Sep 7.",
+  "year_end": "2027-09-06",
+  "holidays": [
+    { "date": "2026-09-07", "name": "Labour Day", "stat": true },
+    { "date": "2026-10-12", "name": "Thanksgiving", "stat": true },
+    { "date": "2026-12-25", "name": "Christmas Day", "stat": true },
+    { "date": "2026-12-26", "name": "Boxing Day", "stat": true },
+    { "date": "2027-01-01", "name": "New Year's Day", "stat": true },
+    { "date": "2027-02-15", "name": "Family Day", "stat": true },
+    { "date": "2027-03-26", "name": "Good Friday", "stat": true },
+    { "date": "2027-03-29", "name": "Easter Monday", "stat": false },
+    { "date": "2027-05-24", "name": "Victoria Day", "stat": true },
+    { "date": "2027-07-01", "name": "Canada Day", "stat": true },
+    { "date": "2027-08-02", "name": "Civic Holiday", "stat": false },
+    { "date": "2027-09-06", "name": "Labour Day", "stat": true }
+  ],
+  "breaks": [
+    { "start": "2026-12-21", "end": "2027-01-01", "name": "Winter Break" },
+    { "start": "2027-03-15", "end": "2027-03-19", "name": "March Break" }
+  ],
+  "boards": [
+    {
+      "id": "tdsb", "name": "Toronto District School Board", "short": "TDSB", "type": "public",
+      "cities": ["Toronto", "North York", "Scarborough", "Etobicoke", "East York", "York"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-01-15", "2027-02-12", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-02-02", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "source": "https://www.tdsb.on.ca/Portals/0/docs/2026-27%20TDSB%20School%20Year%20Calendar%20Key%20Dates.pdf"
+    },
+    {
+      "id": "tcdsb", "name": "Toronto Catholic District School Board", "short": "TCDSB", "type": "catholic",
+      "cities": ["Toronto", "North York", "Scarborough", "Etobicoke", "East York", "York"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-01-15", "2027-02-12", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-02-02", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "source": "https://www.tcdsb.org/page/school-year-calendar"
+    },
+    {
+      "id": "pdsb", "name": "Peel District School Board", "short": "PDSB", "type": "public",
+      "cities": ["Mississauga", "Brampton", "Caledon"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-27", "2027-01-18", "2027-02-12", "2027-06-14"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-26", "2027-02-03", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-30", "secondary": "2027-06-28" },
+      "estimated": ["last_day.secondary"],
+      "note": "Secondary last day inferred: June 29–30 are PA days.",
+      "exceptions": "Balanced-calendar schools (Roberta Bondar PS, Ray Lawson PS, Tony Pontes PS) follow a different calendar.",
+      "source": "https://www.peelschools.org/calendar"
+    },
+    {
+      "id": "dpcdsb", "name": "Dufferin-Peel Catholic District School Board", "short": "DPCDSB", "type": "catholic",
+      "cities": ["Mississauga", "Brampton", "Caledon", "Orangeville"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-27", "2027-01-18", "2027-02-12", "2027-06-14"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-26", "2027-02-03", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-30", "secondary": "2027-06-28" },
+      "estimated": ["last_day.secondary"],
+      "note": "The board lists June 30 as the last day for both panels, but June 29–30 are secondary PA days.",
+      "source": "https://www.dpcdsb.org/schools/school-year-calendar"
+    },
+    {
+      "id": "yrdsb", "name": "York Region District School Board", "short": "YRDSB", "type": "public",
+      "cities": ["Markham", "Richmond Hill", "Vaughan", "Aurora", "Newmarket", "King", "Whitchurch-Stouffville", "Stouffville", "East Gwillimbury", "Georgina", "Keswick", "Thornhill", "Unionville", "Maple", "Woodbridge"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-20", "2027-01-15", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-02-02", "2027-05-03", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "exceptions": "Early-start secondary schools (Keswick HS, Maple HS, Markville SS, Sutton DHS) and Bill Crothers SS (balanced) follow a different calendar.",
+      "source": "https://www2.yrdsb.ca/node/1337"
+    },
+    {
+      "id": "ycdsb", "name": "York Catholic District School Board", "short": "YCDSB", "type": "catholic",
+      "cities": ["Markham", "Richmond Hill", "Vaughan", "Aurora", "Newmarket", "King", "Whitchurch-Stouffville", "Stouffville", "East Gwillimbury", "Georgina", "Keswick", "Thornhill", "Unionville", "Maple", "Woodbridge"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-20", "2027-01-15", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-11-20", "2027-02-02", "2027-05-03", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "estimated": ["first_day", "last_day.elementary", "last_day.secondary"],
+      "note": "First and last days are not on the board's key-dates page; inferred from the PA-day pattern.",
+      "source": "https://www.ycdsb.ca/school-year-calendar/"
+    },
+    {
+      "id": "ddsb", "name": "Durham District School Board", "short": "DDSB", "type": "public",
+      "cities": ["Pickering", "Ajax", "Whitby", "Oshawa", "Clarington", "Bowmanville", "Courtice", "Uxbridge", "Scugog", "Port Perry", "Brock"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-09-04", "2026-10-26", "2026-11-13", "2027-01-22", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-09-04", "2026-10-26", "2026-11-13", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "exceptions": "Modified-year schools (C.E. Broughton PS, Winchester PS, Brock HS, Henry Street HS, Maxwell Heights SS) follow a different calendar.",
+      "source": "https://www.ddsb.ca/resources/school-year-calendars/school-year-key-dates/"
+    },
+    {
+      "id": "dcdsb", "name": "Durham Catholic District School Board", "short": "DCDSB", "type": "catholic",
+      "cities": ["Pickering", "Ajax", "Whitby", "Oshawa", "Clarington", "Bowmanville", "Courtice", "Uxbridge", "Scugog", "Port Perry", "Brock"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-13", "2027-01-22", "2027-06-04", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-26", "2026-11-13", "2027-02-12", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "source": "https://www.dcdsb.ca/our-families/school-year-calendar/"
+    },
+    {
+      "id": "hdsb", "name": "Halton District School Board", "short": "HDSB", "type": "public",
+      "cities": ["Oakville", "Burlington", "Milton", "Halton Hills", "Georgetown", "Acton"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-09", "2026-11-27", "2027-02-05", "2027-04-19", "2027-06-04"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-09", "2026-11-27", "2027-02-05", "2027-04-19", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-30", "secondary": "2027-06-29" },
+      "source": "https://www.hdsb.ca/schools/school-year-calendar/"
+    },
+    {
+      "id": "hcdsb", "name": "Halton Catholic District School Board", "short": "HCDSB", "type": "catholic",
+      "cities": ["Oakville", "Burlington", "Milton", "Halton Hills", "Georgetown", "Acton"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-09", "2026-11-27", "2027-01-29", "2027-04-19", "2027-06-04"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-09", "2026-11-27", "2027-02-05", "2027-04-19", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-30", "secondary": "2027-06-29" },
+      "source": "https://www.hcdsb.org/schools/school-year-calendar/2026-2027-school-year-calendar/"
+    },
+    {
+      "id": "wrdsb", "name": "Waterloo Region District School Board", "short": "WRDSB", "type": "public",
+      "cities": ["Waterloo", "Kitchener", "Cambridge", "Wilmot", "Woolwich", "Wellesley", "North Dumfries", "Elmira", "New Hamburg"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-10-26", "2027-01-15", "2027-04-23", "2027-05-31", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-10-26", "2027-02-03", "2027-04-23", "2027-06-29", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-28" },
+      "source": "https://schools.wrdsb.ca/school-year-information/calendars-and-important-dates/"
+    },
+    {
+      "id": "wcdsb", "name": "Waterloo Catholic District School Board", "short": "WCDSB", "type": "catholic",
+      "cities": ["Waterloo", "Kitchener", "Cambridge", "Wilmot", "Woolwich", "Wellesley", "North Dumfries", "Elmira", "New Hamburg"],
+      "pa": {
+        "elementary": ["2026-09-02", "2026-09-03", "2026-09-04", "2026-10-26", "2027-01-15", "2027-04-23", "2027-05-31", "2027-06-30"],
+        "secondary": ["2026-09-02", "2026-09-03", "2026-09-04", "2026-10-26", "2027-02-03", "2027-04-23", "2027-05-31", "2027-06-30"]
+      },
+      "last_day": { "elementary": "2027-06-29", "secondary": "2027-06-29" },
+      "note": "The board's calendar PDFs are still marked Draft.",
+      "source": "https://www.wcdsb.ca/wp-content/uploads/sites/36/2026/03/2026-2027-Elementary-Calendar.pdf"
+    }
+  ]
+}

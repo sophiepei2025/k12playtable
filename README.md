@@ -2,7 +2,8 @@
 
 北美课外活动决策平台：给家长 / counselor 的免费查询网页 + 给他们 AI 助手用的 MCP。按 Meridian（`edmoat-seo-geo-mcp` 同款）网关模式部署到 Vercel。
 
-- **网页**：`public/`，英文界面，搜索 + 筛选 + 「Is it worth it?」信号解读 + 收藏 + 最多 3 个并排对比 + 截止日 `.ics` 导出 + 一句话搜索（Qwen）。
+- **首页 Break Planner**（`/`）：输入城市、公立/天主教、年级 → 该教育局 2026–27 的 PA 日、长周末、寒假/March Break/暑假日历；家长自己填计划（存在浏览器本地）并导出 `.ics`；每个假期的「Fill this break with programs」是付费功能，本地用 `/?pro=1` 预览。目前覆盖 GTA + Waterloo 12 个教育局（`data/calendars/on-2026-27.json`，每局附官网来源）。
+- **项目库**（`/browse`），英文界面，搜索 + 筛选 + 「Is it worth it?」信号解读 + 收藏 + 最多 3 个并排对比 + 截止日 `.ics` 导出 + 一句话搜索（Qwen）。
 - **MCP**：`/mcp`（无状态 Streamable HTTP）和本地 stdio。6 个免费只读 tool + 2 个付费 tool + 2 个 prompt。
 - **公开 API**：`/api/activities`、`/api/parse-query`，以及 `/llms.txt`、`/openapi.json`。
 - **数据管线**：Qwen 从官网抽取字段 → 逐字引用校验 → 人工审核 → 上线。
@@ -14,8 +15,9 @@
 ```bash
 npm install
 cp .env.example .env          # 填 DASHSCOPE_API_KEY_CN（北京 key）
-npm test                      # 34 个测试
+npm test                      # 51 个测试
 npm run serve                 # http://localhost:3000 网页 + /mcp + /api
+# 本地预览技巧：/?pro=1 打开付费推荐预览（/?pro=0 关闭）；/?today=2026-11-24 固定"今天"用于演示
 ```
 
 ## MCP

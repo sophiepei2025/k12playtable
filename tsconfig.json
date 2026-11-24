@@ -12,6 +12,6 @@
     "declaration": false,
     "sourceMap": false
   },
-  "include": ["src/**/*.ts", "data/activities.json"],
+  "include": ["src/**/*.ts", "data/activities.json", "data/calendars/*.json"],
   "exclude": ["node_modules", "dist", "src/**/*.test.ts"]
 }

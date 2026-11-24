@@ -16,7 +16,8 @@ createServer(async (req, res) => {
     if (url.pathname === "/mcp" || url.pathname === "/health") return await handleHttpRequest(req, res);
     if (url.pathname === "/api/activities") return await handleActivities(req, res);
     if (url.pathname === "/api/parse-query") return await handleParseQuery(req, res);
-    const file = path.join(ROOT, url.pathname === "/" ? "index.html" : url.pathname);
+    const rel = url.pathname === "/" ? "index.html" : path.extname(url.pathname) ? url.pathname : `${url.pathname}.html`;
+    const file = path.join(ROOT, rel);
     if (!file.startsWith(ROOT)) throw new Error("bad path");
     const body = await readFile(file);
     res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] ?? "application/octet-stream" });

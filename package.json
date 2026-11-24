@@ -1,7 +1,7 @@
 {
   "name": "edmoat-extracurriculars",
   "version": "0.1.0",
-  "description": "北美课外活动决策平台：免费查询网页 + 只读 MCP（家长/counselor 的 agent 可直接调用），按 Meridian 网关模式部署到 Vercel。",
+  "description": "\u5317\u7f8e\u8bfe\u5916\u6d3b\u52a8\u51b3\u7b56\u5e73\u53f0\uff1a\u514d\u8d39\u67e5\u8be2\u7f51\u9875 + \u53ea\u8bfb MCP\uff08\u5bb6\u957f/counselor \u7684 agent \u53ef\u76f4\u63a5\u8c03\u7528\uff09\uff0c\u6309 Meridian \u7f51\u5173\u6a21\u5f0f\u90e8\u7f72\u5230 Vercel\u3002",
   "type": "module",
   "private": true,
   "bin": {
@@ -19,7 +19,7 @@
     "review": "tsx scripts/review.ts",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
-    "build:web": "esbuild src/web/main.ts --bundle --format=esm --minify --target=es2020 --outfile=public/app.js",
+    "build:web": "esbuild src/web/main.ts --bundle --format=esm --minify --target=es2020 --outfile=public/app.js && esbuild src/web/planner.ts --bundle --format=esm --minify --target=es2020 --outfile=public/planner.js",
     "serve": "npm run build && tsx scripts/dev-server.ts"
   },
   "dependencies": {
